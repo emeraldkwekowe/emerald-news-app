@@ -5,7 +5,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
   padding: 25px 30px;
 }
-
+* {
+  letter-spacing: -0.04em;
+}
 .animated {
   -webkit-animation-duration: 1s;
   animation-duration: 0.5s;

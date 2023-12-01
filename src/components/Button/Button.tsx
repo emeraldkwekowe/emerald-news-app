@@ -1,10 +1,11 @@
+import { memo } from "react";
 import { ButtonContainer } from "./styles";
 
-type ButtonTypes = {
+interface ButtonTypes {
   children: React.ReactNode;
   variant?: "filled" | "outline";
   className?: String;
-};
+}
 
 function Button({ children, variant, className }: ButtonTypes) {
   return (
@@ -18,4 +19,4 @@ function Button({ children, variant, className }: ButtonTypes) {
   );
 }
 
-export default Button;
+export default memo(Button);

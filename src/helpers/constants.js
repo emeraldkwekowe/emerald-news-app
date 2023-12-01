@@ -1,4 +1,5 @@
 export const pallete = {
+  white: "#ffffff",
   dark: {
     D50: "#e7e8ea",
     D75: "#9da0a7",

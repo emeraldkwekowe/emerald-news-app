@@ -1,4 +1,4 @@
-import Header from "../../components/header/header";
+import Header from "../../components/Header/Header";
 import TopStories from "./components/TopStories/TopStories";
 
 function Home() {
