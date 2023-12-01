@@ -2,8 +2,9 @@ import styled from "styled-components";
 
 export const TopStoriesContainer = styled.div`
   width: auto;
-  height: 100vh;
+  height: 840px;
   display: flex;
+  justify-content: space-between;
 `;
 
 export const LeftSection = styled.div`
@@ -16,5 +17,5 @@ export const LeftSection = styled.div`
 `;
 
 export const RightSection = styled.div`
-  width: 30%;
+  width: 28%;
 `;

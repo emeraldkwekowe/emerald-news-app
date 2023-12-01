@@ -1,3 +1,4 @@
+import LoadingCard from "../../../../components/LoadingCard/LoadingCard";
 import { LeftSection, RightSection, TopStoriesContainer } from "./styles";
 
 function TopStories() {
@@ -5,8 +6,12 @@ function TopStories() {
     <TopStoriesContainer>
       <LeftSection>
         <h1>Best of the week.</h1>
+        <LoadingCard />
       </LeftSection>
-      <RightSection></RightSection>
+      <RightSection>
+        <LoadingCard height={380} mb={25} />
+        <LoadingCard height={380} />
+      </RightSection>
     </TopStoriesContainer>
   );
 }
