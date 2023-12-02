@@ -8,11 +8,12 @@ export const TopStoriesContainer = styled.div`
 `;
 
 export const LeftSection = styled.div`
-  width: 70%;
+  width: 69%;
   h1 {
     font-size: 90px;
     letter-spacing: -0.03em;
     margin-top: 0;
+    margin-bottom: 24px;
   }
 `;
 

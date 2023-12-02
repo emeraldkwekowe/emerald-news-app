@@ -1,0 +1,35 @@
+//Default api configs
+export const eventRegistryConfig = {
+  action: "getArticles",
+  // keyword: "realestate",
+  articlesPage: 1,
+  lang: "eng",
+  dateStart: "2023-11-30",
+  articlesCount: 10,
+  articlesSortBy: "date",
+  articlesSortByAsc: false,
+  articlesArticleBodyLen: -1,
+  resultType: "articles",
+  dataType: ["news", "pr", "blog"],
+  apiKey: "060306a0-14b8-49d6-811e-213589ae9afd",
+  forceMaxDataTimeWindow: 31,
+  includeArticleConcepts: true,
+  includeArticleCategories: true,
+  //TODO: we still have a repetion problem despite this
+  isDuplicateFilter: "skipDuplicates",
+  //Ignore sources with poor media
+  ignoreSourceUri: [
+    "twarak.com",
+    "crweworld.com",
+    "streetinsider.com",
+    "keyt.com",
+    "uk.advfn.com",
+    "freerepublic.com",
+    "herald.co.zw",
+    "thisdaylive.com",
+    "dailypolitical.com",
+    "thelincolnianonline.com",
+    "defenseworld.net",
+    "themarketsdaily.com",
+  ],
+};

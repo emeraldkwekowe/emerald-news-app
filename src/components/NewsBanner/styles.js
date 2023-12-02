@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import { pallete } from "../../helpers/constants";
 
-export const NewsBannerContainer = styled.div`
+export const NewsBannerContainer = styled.a`
+  text-decoration: none;
   width: auto;
   height: 575px;
   padding: 40px;
@@ -10,6 +11,30 @@ export const NewsBannerContainer = styled.div`
   display: flex;
   justify-content: space-between;
   position: relative;
+  background-size: auto 100%;
+  background-color: #b8d3d8;
+  background-position: center;
+  transition: all 0.6s ease;
+
+  &:hover {
+    background-size: auto 120%;
+    h2 {
+      span {
+        text-decoration: underline;
+      }
+    }
+  }
+  &::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    background: rgba(0, 0, 0, 0.5);
+    left: 0;
+    z-index: -1;
+    border-radius: inherit;
+  }
   div {
     display: flex;
     flex-direction: column;
@@ -22,6 +47,7 @@ export const NewsBannerContainer = styled.div`
       padding: 5px 20px;
       letter-spacing: -0.04em;
       margin-bottom: 10px;
+      color: ${pallete.dark.D500};
       &.outline {
         background: unset;
         color: ${pallete.white};
@@ -31,16 +57,18 @@ export const NewsBannerContainer = styled.div`
   }
   h2 {
     width: 50%;
-    font-size: 40px;
+    font-size: 36px;
     margin: 0;
     span {
       letter-spacing: -0.05em;
       border-radius: 40px;
       background-color: ${pallete.white};
       color: ${pallete.dark.D500};
-      padding: 0.225rem 0.5rem;
+      padding: 0.225rem 1.5rem;
       -webkit-box-decoration-break: clone;
       box-decoration-break: clone;
+      line-height: 1.3em;
+      font-weight: 600;
     }
   }
   button {
@@ -50,8 +78,9 @@ export const NewsBannerContainer = styled.div`
     margin: 30px;
   }
   &.small {
-    height: 322px;
-    margin-bottom: 34px;
+    height: 310px;
+    margin-bottom: 47px;
+    background-size: auto 100%;
     flex-direction: column;
     h2 {
       font-size: 25px;
@@ -62,5 +91,41 @@ export const NewsBannerContainer = styled.div`
       top: 0;
       right: 0;
     }
+    &:hover {
+      background-size: auto 120%;
+    }
   }
+  &.small:nth-of-type(1) {
+    background-image: unset !important;
+    div {
+      span {
+        &.outline {
+          border-color: ${pallete.dark.D400};
+          color: ${pallete.dark.D400};
+        }
+      }
+    }
+    h2 {
+      font-size: 30px;
+      line-height: 0.1em;
+      span {
+        padding: 0;
+        background: unset;
+      }
+    }
+    &::after {
+      display: none;
+    }
+  }
+`;
+
+export const BodyText = styled.div`
+  position: absolute;
+  left: 5%;
+  bottom: 50px;
+  font-size: 18px;
+  font-weight: 500;
+  text-shadow: 0px 1px 0px #000;
+  width: 70%;
+  color: ${pallete.white};
 `;

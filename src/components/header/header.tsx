@@ -4,12 +4,13 @@ import { ReactComponent as SearchIcon } from "../../Assets/Icon-feather-search.s
 
 function Header() {
   return (
+    //TODO: test this
     <HeaderContainer>
       <Logo href="#!" className="logo animated fadeIn">
-        Emerald Spot.
+        Emerald hub.
       </Logo>
       <p className="animated fadeInUp delay2">
-        Articles, news and updates from your favorite sources
+        Articles, news and updates from your favorite sources.
       </p>
       <div style={{ marginLeft: "auto", display: "flex" }}>
         <Button variant="filled" className="delay3">

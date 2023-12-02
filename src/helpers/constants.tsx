@@ -10,3 +10,11 @@ export const pallete = {
     D500: "#0a0f18",
   },
 };
+
+export const DEFAULT_CATEGORIES = [
+  "entertainment",
+  "sport",
+  "music",
+  "health",
+  "lifestyle",
+];

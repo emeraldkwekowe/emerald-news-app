@@ -4,13 +4,14 @@ import ContentLoader from "react-content-loader";
 interface LoadingCardTypes {
   height?: number;
   mb?: number;
+  delay?: string;
 }
 
-const LoadingCard = ({ height = 600, mb = 0 }: LoadingCardTypes) => (
+const LoadingCard = ({ height = 600, mb = 0, delay }: LoadingCardTypes) => (
   <>
     <div
       data-testid="loading-card"
-      className="animated fadeInUp delay3"
+      className={`animated fadeInUp ${delay ? delay : "delay3"}`}
       style={{ marginBottom: mb }}
     >
       <ContentLoader width={"100%"} speed={1} height={height}>

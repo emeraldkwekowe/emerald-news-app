@@ -1,29 +1,77 @@
 import { memo } from "react";
-import { NewsBannerContainer } from "./styles";
+import { BodyText, NewsBannerContainer } from "./styles";
 import Button from "../Button/Button";
 import { ReactComponent as ArrowRight } from "../../Assets/Icon-feather-arrow-up-right.svg";
+import { getPrimaryCategory, reduceTextSize } from "../../helpers/functions";
+import LoadingCard from "../LoadingCard/LoadingCard";
 
 interface Props {
   small?: boolean;
   className?: string;
+  date: string;
+  title: string;
+  url: string;
+  image: string;
+  categories: { label?: string }[];
+  body: string;
+  status: "idle" | "success" | "loading" | "error";
+  position: "1" | "2" | "3";
 }
 
-function NewsBanner({ small, className }: Props) {
+function NewsBanner(props: Props) {
+  const {
+    small,
+    className,
+    date,
+    title,
+    url,
+    image,
+    categories,
+    body,
+    status,
+    position,
+  } = props;
   return (
-    <NewsBannerContainer
-      data-testid="newsbanner-div"
-      className={`animated fadeInUp ${small ? "small" : ""} ${className || ""}`}
-    >
-      <div>
-        <span>Sep 06, 2022</span> <span className="outline">Travel</span>
-      </div>
-      <h2>
-        <span>Get to your dream now destinations with TravelPro</span>
-      </h2>
-      <Button variant="filled" className="white">
-        <ArrowRight />
-      </Button>
-    </NewsBannerContainer>
+    <>
+      {status === "loading" && position === "1" && <LoadingCard />}
+      {status === "loading" && position === "2" && (
+        <LoadingCard height={380} mb={25} delay="delay3" />
+      )}
+      {status === "loading" && position === "3" && (
+        <LoadingCard height={380} delay="delay4" />
+      )}
+      {status === "success" && (
+        <NewsBannerContainer
+          href={url}
+          target="_blank"
+          rel="norefferer"
+          style={{
+            backgroundImage: `url(${image?.replaceAll(
+              "%22isDuplicate:false",
+              ""
+            )})`,
+          }}
+          data-testid="newsbanner-div"
+          className={`animated fadeInUp ${small ? "small" : ""} ${
+            className || ""
+          }`}
+        >
+          <div>
+            <span>{date}</span>
+            <span className="outline">{getPrimaryCategory(categories)}</span>
+          </div>
+          <h2>
+            <span>
+              {small ? reduceTextSize(title, 70) : reduceTextSize(title, 120)}
+            </span>
+          </h2>
+          {!small && <BodyText>{reduceTextSize(body, 500)}</BodyText>}
+          <Button variant="filled" className="white">
+            <ArrowRight />
+          </Button>
+        </NewsBannerContainer>
+      )}
+    </>
   );
 }
 

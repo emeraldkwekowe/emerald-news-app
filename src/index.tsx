@@ -4,6 +4,8 @@ import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import Home from "./pages/Home/Home";
 import UserPreferencesProvider from "./context/UserPreferences/UserPreferencesContext";
+import { QueryClient, QueryClientProvider } from "react-query";
+const queryClient = new QueryClient();
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -11,7 +13,9 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <UserPreferencesProvider>
-      <Home />
+      <QueryClientProvider client={queryClient}>
+        <Home />
+      </QueryClientProvider>
     </UserPreferencesProvider>
   </React.StrictMode>
 );
