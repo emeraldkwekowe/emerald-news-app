@@ -30,6 +30,16 @@ export const ButtonContainer = styled.button`
       color: ${pallete.dark.D300};
       background-color: ${pallete.white};
     }
+    &.red {
+      font-weight: 600;
+      padding: 5px 20px;
+      color: ${pallete.red.R100};
+      background-color: ${pallete.red.R75};
+      &:hover {
+        background-color: ${pallete.red.R100};
+        color: #fff;
+      }
+    }
   }
   &:hover {
     background: ${pallete.dark.D500};

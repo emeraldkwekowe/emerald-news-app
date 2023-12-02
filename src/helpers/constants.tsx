@@ -1,3 +1,4 @@
+//Theme pallete
 export const pallete = {
   white: "#ffffff",
   dark: {
@@ -8,6 +9,14 @@ export const pallete = {
     D300: "#101828",
     D400: "#0b111c",
     D500: "#0a0f18",
+  },
+  blue: {
+    B50: "#b8d3d8",
+  },
+  red: {
+    R50: "#fef2f2",
+    R75: "#fee2e3",
+    R100: "#f26b6d",
   },
 };
 

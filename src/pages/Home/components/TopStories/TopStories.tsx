@@ -5,24 +5,35 @@ import NewsBanner from "../../../../components/NewsBanner/NewsBanner";
 import { LeftSection, RightSection, TopStoriesContainer } from "./styles";
 import useUserPreferences from "../../../../context/UserPreferences/UseUserPreferences";
 import { DEFAULT_CATEGORIES } from "../../../../helpers/constants";
+import Error from "../../../../components/Error/Error";
 
 function TopStories() {
   //Get preferences from global context
   const { mySources, myCategories } = useUserPreferences();
 
   //Get data for the top 3 stories of the day
-  const { status, data } = useGetData("topStories", endpoints?.getTopStories, {
-    ...eventRegistryConfig,
-    articlesCount: 3,
-    //Use user's preffered categories (keyword ensures a more robust result) or default categories
-    keyword: myCategories || DEFAULT_CATEGORIES,
-    keywordOper: "or",
-    //User's preffered sources or get all allowed sources
-    sourceUri: mySources || null,
-  });
+  const { status, data, error } = useGetData(
+    "topStories",
+    endpoints?.getTopStories,
+    {
+      ...eventRegistryConfig,
+      articlesCount: 3,
+      //Use user's preffered categories (keyword ensures a more robust result) or default categories
+      keyword: myCategories || DEFAULT_CATEGORIES,
+      keywordOper: "or",
+      //User's preffered sources or get all allowed sources
+      sourceUri: mySources || null,
+    }
+  );
 
   //Extract articles from response
   const stories = data?.data?.articles?.results || [];
+
+  console.log(status, error);
+
+  if (error && !data) {
+    return <Error />;
+  }
   return (
     <TopStoriesContainer>
       <LeftSection>

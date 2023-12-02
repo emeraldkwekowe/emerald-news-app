@@ -7,12 +7,11 @@ export const NewsBannerContainer = styled.a`
   height: 575px;
   padding: 40px;
   border-radius: 30px;
-  background: #333;
   display: flex;
   justify-content: space-between;
   position: relative;
   background-size: auto 100%;
-  background-color: #b8d3d8;
+  background-color: ${pallete.blue.B50};
   background-position: center;
   transition: all 0.6s ease;
 
@@ -106,7 +105,7 @@ export const NewsBannerContainer = styled.a`
       }
     }
     h2 {
-      font-size: 30px;
+      font-size: 29px;
       line-height: 0.1em;
       span {
         padding: 0;
@@ -125,7 +124,7 @@ export const BodyText = styled.div`
   bottom: 50px;
   font-size: 18px;
   font-weight: 500;
-  text-shadow: 0px 1px 0px #000;
+  text-shadow: 0px 1px 0px ${pallete.dark.D500};
   width: 70%;
   color: ${pallete.white};
 `;

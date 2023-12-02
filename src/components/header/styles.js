@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { pallete } from "../../helpers/constants";
 
 export const HeaderContainer = styled.header`
   height: 100px;
@@ -10,7 +11,7 @@ export const HeaderContainer = styled.header`
 `;
 
 export const Logo = styled.a`
-  color: #000;
+  color: ${pallete.dark.D500};
   font-weight: 800;
   text-decoration: none;
   font-size: 30px;

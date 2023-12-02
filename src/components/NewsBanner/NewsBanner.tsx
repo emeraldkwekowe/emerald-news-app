@@ -46,10 +46,7 @@ function NewsBanner(props: Props) {
           target="_blank"
           rel="norefferer"
           style={{
-            backgroundImage: `url(${image?.replaceAll(
-              "%22isDuplicate:false",
-              ""
-            )})`,
+            backgroundImage: `url(${image})`,
           }}
           data-testid="newsbanner-div"
           className={`animated fadeInUp ${small ? "small" : ""} ${
