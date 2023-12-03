@@ -6,15 +6,26 @@ interface ButtonTypes {
   variant?: "filled" | "outline";
   className?: String;
   useLink?: boolean;
+  style?: React.CSSProperties;
   onClick?: () => void;
+  disabled?: boolean;
 }
 
-function Button({ children, variant, className, onClick }: ButtonTypes) {
+function Button({
+  disabled,
+  children,
+  variant,
+  className,
+  onClick,
+  style,
+}: ButtonTypes) {
   return (
     //TODO: write this better
     //TODO: test this
     <ButtonContainer
+      disabled={disabled}
       onClick={onClick}
+      style={style}
       className={`animated fadeInUp ${variant || ""} ${className || ""}`}
     >
       {children}

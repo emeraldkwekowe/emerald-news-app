@@ -8,7 +8,7 @@ export type UserPreferencesContextType = {
   myCategories: string[] | null;
   updatePreferences: (
     type: "authors" | "sources" | "categories",
-    value: string[]
+    value: string[] | null
   ) => void;
 };
 

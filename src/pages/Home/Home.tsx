@@ -5,6 +5,7 @@ import { RightSection } from "./components/BestOfTheWeek/styles";
 import { MainContentContainer } from "./styles";
 import LatestInYourCountry from "./components/LatestInYourCountry/LatestInYourCountry";
 import Authors from "./components/Authors/Authors";
+import Personalize from "./components/Personalize/Personalize";
 
 function Home() {
   return (
@@ -21,6 +22,7 @@ function Home() {
           <Authors />
         </RightSection>
       </MainContentContainer>
+      <Personalize />
     </main>
   );
 }

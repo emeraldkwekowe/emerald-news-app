@@ -4,6 +4,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   padding: 25px 30px;
+  max-width: 1900px;
+  margin: 0 auto;
 
   background-image: url(http://caards.codesupply.co/caards/wp-content/uploads/sites/2/2023/04/common-background.jpg);
   background-repeat: no-repeat;
@@ -14,6 +16,7 @@ body {
 * {
   letter-spacing: -0.04em;
 }
+
 .animated {
   -webkit-animation-duration: 1s;
   animation-duration: 0.5s;

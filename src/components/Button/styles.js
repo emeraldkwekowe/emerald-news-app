@@ -11,28 +11,30 @@ export const ButtonContainer = styled.button`
   padding: 5px 20px;
   display: flex;
   align-items: center;
-  margin-left: 10px;
   cursor: pointer;
   transform: scale(1);
   transition: all 0.4s ease;
   text-align: center;
   justify-content: center;
+
   svg {
     height: 20px;
   }
   &.filled {
     background: ${pallete.dark.D300};
     color: ${pallete.white};
-    padding: 5px 0px;
+    padding: 5px 40px;
     border: unset;
     min-width: 50px;
+    &.icon {
+      padding: 5px 0px;
+    }
     &.white {
       color: ${pallete.dark.D300};
       background-color: ${pallete.white};
     }
     &.red {
       font-weight: 600;
-      padding: 5px 20px;
       color: ${pallete.red.R100};
       background-color: ${pallete.red.R75};
       &:hover {
@@ -46,5 +48,9 @@ export const ButtonContainer = styled.button`
     transform: scale(1.05);
     color: ${pallete.white};
     transition: all 0.4s ease;
+  }
+  &:disabled {
+    background: ${pallete.dark.D75};
+    cursor: not-allowed;
   }
 `;

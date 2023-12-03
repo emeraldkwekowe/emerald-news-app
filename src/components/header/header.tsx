@@ -13,10 +13,12 @@ function Header() {
         Articles, news and updates from your favorite sources.
       </p>
       <div style={{ marginLeft: "auto", display: "flex" }}>
-        <Button variant="filled" className="delay3">
+        <Button variant="filled" className="delay3 icon">
           <SearchIcon />
         </Button>
-        <Button className="delay4">Personalize feed</Button>
+        <Button className="delay4" style={{ marginLeft: 10 }}>
+          Personalize feed
+        </Button>
       </div>
     </HeaderContainer>
   );

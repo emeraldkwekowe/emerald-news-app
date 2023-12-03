@@ -21,7 +21,7 @@ const UserPreferencesProvider = ({ children }: UserPreferencesProviderType) => {
   //Reusable function that receives the preference type and value and updates it globally
   const updatePreferences = (
     type: "authors" | "sources" | "categories",
-    value: string[]
+    value: string[] | null
   ) => {
     switch (type) {
       case "authors":

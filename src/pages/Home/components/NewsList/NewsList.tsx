@@ -40,10 +40,15 @@ function NewsList() {
 
   //Extract articles from response
   const stories = data?.data?.articles?.results || [];
+
+  const PAGE_TITLE = myCategories
+    ? `Your personalized news feed`
+    : `Latest stories for you.`;
   return (
     <LeftSection>
       <h2 style={{ fontSize: "30px", marginTop: 0 }}>
-        Latest stories for you.
+        {PAGE_TITLE}
+        <Button variant="filled">Personalize Feed</Button>
       </h2>
       <CategoriesContainer>
         <CategoryButton
