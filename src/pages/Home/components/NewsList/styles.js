@@ -28,10 +28,13 @@ export const CategoryButton = styled.button`
 
   &.active {
     color: ${pallete.white};
-    background: ${pallete.blue.B200};
+    background: ${pallete.dark.D500};
+    &:hover {
+      background: ${pallete.dark.D500};
+    }
   }
   &:hover {
     color: ${pallete.white};
-    background: ${pallete.blue.B100};
+    background: ${pallete.dark.D100};
   }
 `;

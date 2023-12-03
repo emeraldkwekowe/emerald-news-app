@@ -9,10 +9,10 @@ function Home() {
   return (
     <main>
       <Header />
-      {/*Data sourced from nyt TODO: not yet*/}
+      {/*Data sourced from NewYorkTimes API*/}
       <BestOfTheWeek />
       <MainContentContainer>
-        {/*Data sourced from newsapi.api*/}
+        {/*Data sourced from newsapi.api - eventregistry*/}
         <NewsList />
         <RightSection>
           {/* Data sourced from newsapi.org */}

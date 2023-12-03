@@ -43,6 +43,7 @@ function NewsList() {
       </h2>
       <CategoriesContainer>
         <CategoryButton
+          onClick={() => setActiveCategory("all")}
           className={`${activeCategory === "all" ? "active" : ""}`}
         >
           All

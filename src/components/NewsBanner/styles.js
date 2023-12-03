@@ -56,17 +56,17 @@ export const NewsBannerContainer = styled.a`
   }
   h2 {
     width: 50%;
-    font-size: 36px;
+    font-size: 34px;
     margin: 0;
     span {
       letter-spacing: -0.05em;
       border-radius: 40px;
-      background-color: ${pallete.white};
+      background-color: ${pallete.white}dd;
       color: ${pallete.dark.D500};
       padding: 0.225rem 1.5rem;
       -webkit-box-decoration-break: clone;
       box-decoration-break: clone;
-      line-height: 1.3em;
+      line-height: 1.58em;
       font-weight: 600;
     }
   }
@@ -84,6 +84,9 @@ export const NewsBannerContainer = styled.a`
     h2 {
       font-size: 25px;
       width: 90%;
+      span {
+        line-height: 1.7em;
+      }
     }
     button {
       position: absolute;
@@ -110,6 +113,7 @@ export const NewsBannerContainer = styled.a`
       span {
         padding: 0;
         background: unset;
+        line-height: 1.4em;
       }
     }
     &::after {

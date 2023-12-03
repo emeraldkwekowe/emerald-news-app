@@ -28,7 +28,10 @@ export const reduceTextSize = (text: string, limit: number) => {
   return text;
 };
 
-export const formatDate = (date: string | Date, isForAPI = false) => {
+export const formatDate = (
+  date: string | Date = new Date(),
+  isForAPI = false
+) => {
   if (isForAPI) {
     const year = date.toLocaleString("default", { year: "numeric" });
     const month = date.toLocaleString("default", {

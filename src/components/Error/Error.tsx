@@ -9,7 +9,7 @@ function Error() {
       className="animated fadeIn"
     >
       <ErrorIMG
-        style={{ height: "15vw" }}
+        style={{ height: "13vw" }}
         className="animated fadeInUp delay2"
       />
       <h4 className="animated fadeInUp delay3">Something is wrong..</h4>

@@ -12,8 +12,9 @@ interface Props {
   title: string;
   url: string;
   image: string;
-  categories: { label?: string }[];
-  body: string;
+  categories?: { label?: string }[];
+  body?: string;
+  newsDesk?: string;
   status: "idle" | "success" | "loading" | "error";
   position: "1" | "2" | "3";
 }
@@ -30,6 +31,7 @@ function NewsBanner(props: Props) {
     body,
     status,
     position,
+    newsDesk,
   } = props;
   return (
     <>
@@ -57,14 +59,16 @@ function NewsBanner(props: Props) {
         >
           <div>
             <span>{date}</span>
-            <span className="outline">{getPrimaryCategory(categories)}</span>
+            <span className="outline">
+              {categories ? getPrimaryCategory(categories) : newsDesk}
+            </span>
           </div>
           <h2>
             <span>
               {small ? reduceTextSize(title, 70) : reduceTextSize(title, 120)}
             </span>
           </h2>
-          {!small && <BodyText>{reduceTextSize(body, 500)}</BodyText>}
+          {!small && <BodyText>{body && reduceTextSize(body, 500)}</BodyText>}
           <Button variant="filled" className="white">
             <ArrowRight />
           </Button>

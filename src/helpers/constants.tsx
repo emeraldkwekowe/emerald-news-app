@@ -1,6 +1,7 @@
 export const API_KEYS = {
   newsApiOrg: "e81d210578d4409ba8655bc006993f23",
   newsApiApi: "060306a0-14b8-49d6-811e-213589ae9afd",
+  nytStories: "0pFA0hcdrFJmKWxuG8yA8EIHGGXkCKpg",
 };
 //Theme pallete
 export const pallete = {
@@ -29,8 +30,8 @@ export const pallete = {
 
 export const DEFAULT_CATEGORIES = [
   "entertainment",
-  "sport",
-  "music",
+  "sports",
+  "media",
   "health",
   "lifestyle",
   "business",
