@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const TopStoriesContainer = styled.div`
+export const BestOfTheWeekContainer = styled.div`
   width: auto;
   min-height: 820px;
   height: auto;

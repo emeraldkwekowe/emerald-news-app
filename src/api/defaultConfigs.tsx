@@ -1,17 +1,20 @@
+import { API_KEYS } from "../helpers/constants";
+import { formatDate } from "../helpers/functions";
+
 //Default api config for eventregistry api (newsapi.api)
 export const eventRegistryConfig = {
   action: "getArticles",
   // keyword: "realestate",
   articlesPage: 1,
   lang: "eng",
-  dateStart: "2023-11-30",
+  dateStart: formatDate(new Date(), true),
   articlesCount: 10,
   articlesSortBy: "date",
   articlesSortByAsc: false,
   articlesArticleBodyLen: -1,
   resultType: "articles",
   dataType: ["news", "pr", "blog"],
-  apiKey: "060306a0-14b8-49d6-811e-213589ae9afd",
+  apiKey: API_KEYS.newsApiApi,
   forceMaxDataTimeWindow: 31,
   includeArticleConcepts: true,
   includeArticleCategories: true,

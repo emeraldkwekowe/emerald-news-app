@@ -10,6 +10,11 @@ export const get = async (url: string) =>
 export const post = async (url: string, config: any) =>
   await axios.post(url, config).then((response) => response);
 
-//Use Query hook to fetch data
-export const useGetData = (title: string, url: string, config: {}) =>
+//Use Query hook to fetch data (for requests that fetch with post, e.g: newsapi.api)
+export const usePostData = (title: string, url: string, config: {}) =>
   useQuery([title, config], () => post(url, omitNullishFields(config)));
+
+//Use Query hook to fetch data
+
+export const useGetData = (title: string, url: string, filters?: {}) =>
+  useQuery([title, filters], () => get(url));

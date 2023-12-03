@@ -11,8 +11,8 @@ export const NewsCardContainer = styled.a`
   color: ${pallete.dark.D500};
   transform: translate3d(0, 0, 0);
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.05);
-  background: #fff;
-  margin-bottom: 30px;
+  background: ${pallete.white};
+  margin-bottom: 40px;
   &:hover {
     h3 {
       color: ${pallete.blue.B100};
@@ -54,6 +54,30 @@ export const NewsCardContainer = styled.a`
     .a {
       color: ${pallete.blue.B100};
       font-weight: 800;
+    }
+  }
+  &.small {
+    box-shadow: unset;
+    border-radius: unset;
+    border-bottom: 1px solid ${pallete.dark.D50};
+    display: block;
+    margin-bottom: 20px;
+
+    h4 {
+      font-size: 13px;
+      color: ${pallete.dark.D500};
+      font-weight: 600;
+      letter-spacing: -0.01em;
+
+      span {
+        padding-left: 10px;
+        color: ${pallete.dark.D75};
+      }
+    }
+    h3 {
+      letter-spacing: -0.02em;
+      font-size: 17px;
+      line-height: 23px;
     }
   }
 `;

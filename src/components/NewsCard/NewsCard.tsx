@@ -24,6 +24,8 @@ function NewsCard(props: Props) {
       rel="norefferer"
       className="animated fadeInUp"
       data-testid="newscard-div"
+      role="img"
+      aria-label={title}
     >
       <div
         className="image"
@@ -43,6 +45,33 @@ function NewsCard(props: Props) {
         <p>{reduceTextSize(body, 350)}</p>
         <p className="a">Read more &gt;&gt; </p>
       </div>
+    </NewsCardContainer>
+  );
+}
+
+export function NewsCardSmall(props: {
+  title: string;
+  url: string;
+  source: string;
+  date: string;
+}) {
+  const { title, url, date, source } = props;
+
+  return (
+    <NewsCardContainer
+      href={url}
+      target="_blank"
+      rel="norefferer"
+      className="animated fadeInUp small"
+      data-testid="newscard-div-small"
+      role="img"
+      aria-label={title}
+    >
+      <h4>
+        {source}
+        <span>{date}</span>
+      </h4>
+      <h3>{title}</h3>
     </NewsCardContainer>
   );
 }

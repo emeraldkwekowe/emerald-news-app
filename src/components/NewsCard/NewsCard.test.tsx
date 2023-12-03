@@ -1,5 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import NewsCard from "./NewsCard";
+import { formatDate } from "../../helpers/functions";
 
 describe("NewsCard Component test", () => {
   const mockData = {
@@ -59,7 +60,7 @@ describe("NewsCard Component test", () => {
     const { date, title, body, url, image, categories, source } = mockData;
     render(
       <NewsCard
-        date={new Date(date).toDateString()}
+        date={formatDate(date)}
         title={title}
         body={body}
         url={url}

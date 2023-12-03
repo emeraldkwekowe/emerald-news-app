@@ -52,6 +52,8 @@ function NewsBanner(props: Props) {
           className={`animated fadeInUp ${small ? "small" : ""} ${
             className || ""
           }`}
+          role="img"
+          aria-label={title}
         >
           <div>
             <span>{date}</span>

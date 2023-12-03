@@ -27,23 +27,30 @@ const LoadingCard = ({ height = 600, mb = 0, delay }: LoadingCardTypes) => (
   </>
 );
 
-export const NewsListLoader = () => (
-  <>
-    <ContentLoader
-      viewBox="43 0 360 200"
-      title="Loading news..."
-      backgroundColor="#fff"
-      foregroundColor="#f3f3f3"
-    >
-      <rect x="42.84" y="9.93" rx="5" ry="5" width="143.55" height="86.59" />
-      <rect x="192.84" y="9.67" rx="0" ry="0" width="148.72" height="12.12" />
-      <rect x="192.84" y="25.67" rx="0" ry="0" width="89" height="9" />
+export const NewsListLoader = ({
+  size = "large",
+}: {
+  size?: "large" | "small";
+}) => {
+  const isLarge = size === "large";
+  return (
+    <>
+      <ContentLoader
+        viewBox={`43 0 360 200`}
+        title="Loading news..."
+        backgroundColor={isLarge ? `#fff` : `#f5f6f7`}
+        foregroundColor={isLarge ? `#f3f3f3` : "#eee"}
+      >
+        <rect x="42.84" y="9.93" rx="5" ry="5" width="143.55" height="86.59" />
+        <rect x="192.84" y="9.67" rx="0" ry="0" width="148.72" height="12.12" />
+        <rect x="192.84" y="25.67" rx="0" ry="0" width="89" height="9" />
 
-      <rect x="42.84" y="107" rx="5" ry="5" width="143.55" height="86.59" />
-      <rect x="192.84" y="107" rx="0" ry="0" width="148.72" height="12.12" />
-      <rect x="192.84" y="123" rx="0" ry="0" width="89" height="9" />
-    </ContentLoader>
-  </>
-);
+        <rect x="42.84" y="107" rx="5" ry="5" width="143.55" height="86.59" />
+        <rect x="192.84" y="107" rx="0" ry="0" width="148.72" height="12.12" />
+        <rect x="192.84" y="123" rx="0" ry="0" width="89" height="9" />
+      </ContentLoader>
+    </>
+  );
+};
 
 export default memo(LoadingCard);

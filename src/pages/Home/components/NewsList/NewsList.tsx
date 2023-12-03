@@ -1,11 +1,11 @@
-import { LeftSection } from "../TopStories/styles";
+import { LeftSection } from "../BestOfTheWeek/styles";
 import NewsCard from "../../../../components/NewsCard/NewsCard";
 import { CategoriesContainer, CategoryButton } from "./styles";
 import { useState } from "react";
 import { DEFAULT_CATEGORIES } from "../../../../helpers/constants";
 import { NewsListLoader } from "../../../../components/LoadingCard/LoadingCard";
 import useUserPreferences from "../../../../context/UserPreferences/UseUserPreferences";
-import { useGetData } from "../../../../api/requests";
+import { usePostData } from "../../../../api/requests";
 import { endpoints } from "../../../../api/endpoints";
 import { eventRegistryConfig } from "../../../../api/defaultConfigs";
 import Error from "../../../../components/Error/Error";
@@ -13,19 +13,18 @@ import Button from "../../../../components/Button/Button";
 
 function NewsList() {
   const [activeCategory, setActiveCategory] = useState("all");
-  const [articlesCount, setArticlesCount] = useState(15);
+  const [articlesCount, setArticlesCount] = useState(10);
 
   //Get preferences from global context
   const { mySources, myCategories } = useUserPreferences();
 
   //Get news data from event registry api (newsapi.ai)
-  const { status, data, error } = useGetData(
+  const { status, data, error } = usePostData(
     "allStories__Eventregistry",
     endpoints?.getTopStories,
     {
       ...eventRegistryConfig,
       articlesCount,
-      articlesSortByAsc: true,
       keyword: activeCategory === "all" ? null : activeCategory,
       //User's preffered sources or get all allowed sources
       sourceUri: mySources || null,
@@ -40,7 +39,7 @@ function NewsList() {
   return (
     <LeftSection>
       <h2 style={{ fontSize: "30px", marginTop: 0 }}>
-        The latest top stories for you.
+        Latest stories for you.
       </h2>
       <CategoriesContainer>
         <CategoryButton
@@ -69,9 +68,10 @@ function NewsList() {
           categories: { label?: string }[];
           body: string;
           source: { uri: string };
+          uri: string;
         }) => (
           <NewsCard
-            key={story?.title}
+            key={story?.uri}
             activeCategory={activeCategory}
             {...{ ...story, date: new Date(stories[0]?.date).toDateString() }}
           />

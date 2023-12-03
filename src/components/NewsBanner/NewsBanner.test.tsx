@@ -1,5 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import NewsBanner from "./NewsBanner";
+import { formatDate } from "../../helpers/functions";
 
 describe("NewsBanner Component test", () => {
   const mockData = {
@@ -60,7 +61,7 @@ describe("NewsBanner Component test", () => {
     render(
       <NewsBanner
         status="success"
-        date={new Date(date).toDateString()}
+        date={formatDate(date)}
         title={title}
         body={body}
         url={url}

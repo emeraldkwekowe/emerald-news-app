@@ -1,19 +1,19 @@
 import { eventRegistryConfig } from "../../../../api/defaultConfigs";
 import { endpoints } from "../../../../api/endpoints";
-import { useGetData } from "../../../../api/requests";
+import { usePostData } from "../../../../api/requests";
 import NewsBanner from "../../../../components/NewsBanner/NewsBanner";
-import { LeftSection, RightSection, TopStoriesContainer } from "./styles";
+import { LeftSection, RightSection, BestOfTheWeekContainer } from "./styles";
 import useUserPreferences from "../../../../context/UserPreferences/UseUserPreferences";
 import { DEFAULT_CATEGORIES } from "../../../../helpers/constants";
 import Error from "../../../../components/Error/Error";
 
-function TopStories() {
+function BestOfTheWeek() {
   //Get preferences from global context
   const { mySources, myCategories } = useUserPreferences();
 
   //Get data for the top 3 stories of the day
-  const { status, data, error } = useGetData(
-    "topStories",
+  const { status, data, error } = usePostData(
+    "BestOfTheWeek",
     endpoints?.getTopStories,
     {
       ...eventRegistryConfig,
@@ -33,7 +33,7 @@ function TopStories() {
     return <Error />;
   }
   return (
-    <TopStoriesContainer>
+    <BestOfTheWeekContainer>
       <LeftSection>
         <h1 className="animated fadeInUp delay3">
           {
@@ -81,8 +81,8 @@ function TopStories() {
           status={status}
         />
       </RightSection>
-    </TopStoriesContainer>
+    </BestOfTheWeekContainer>
   );
 }
 
-export default TopStories;
+export default BestOfTheWeek;

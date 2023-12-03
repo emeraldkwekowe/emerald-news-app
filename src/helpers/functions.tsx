@@ -27,3 +27,16 @@ export const reduceTextSize = (text: string, limit: number) => {
   }
   return text;
 };
+
+export const formatDate = (date: string | Date, isForAPI = false) => {
+  if (isForAPI) {
+    const year = date.toLocaleString("default", { year: "numeric" });
+    const month = date.toLocaleString("default", {
+      month: "2-digit",
+    });
+    const day = date.toLocaleString("default", { day: "2-digit" });
+    return [year, month, day].join("-");
+  } else {
+    return new Date(date).toDateString();
+  }
+};

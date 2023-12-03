@@ -1,3 +1,7 @@
+export const API_KEYS = {
+  newsApiOrg: "e81d210578d4409ba8655bc006993f23",
+  newsApiApi: "060306a0-14b8-49d6-811e-213589ae9afd",
+};
 //Theme pallete
 export const pallete = {
   white: "#ffffff",
