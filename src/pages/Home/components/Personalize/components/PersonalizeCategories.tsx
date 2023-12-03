@@ -26,8 +26,8 @@ function PersonalizeCategories() {
   };
 
   const Submit = () => {
-    toast.success("Categories updated successfully!");
     updatePreferences("categories", selectedCategories);
+    toast.success("Categories updated successfully!");
   };
 
   return (
@@ -54,7 +54,7 @@ function PersonalizeCategories() {
             </CategoryButton>
           ))
         ) : (
-          <p>No categories selected</p>
+          <p>No category selected</p>
         )}
       </CategoriesContainer>
       <ModalFooter>
