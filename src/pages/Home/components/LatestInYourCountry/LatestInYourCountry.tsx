@@ -6,7 +6,7 @@ import { NewsCardSmall } from "../../../../components/NewsCard/NewsCard";
 import { API_KEYS } from "../../../../helpers/constants";
 import { formatDate } from "../../../../helpers/functions";
 import { getCountry } from "../../../../helpers/getCountry";
-import { LatestInYourCountryContainer } from "./styles";
+import { AsideContainer } from "./styles";
 
 function LatestInYourCountry() {
   //Get data for the top 3 stories of the day
@@ -21,7 +21,7 @@ function LatestInYourCountry() {
   const stories = data?.data?.articles || [];
 
   return (
-    <LatestInYourCountryContainer>
+    <AsideContainer>
       <h2>Latest in {getCountry("name")}</h2>
       {error && !data && <Error />}
       {status === "loading" && <NewsListLoader size="small" />}
@@ -44,7 +44,7 @@ function LatestInYourCountry() {
             )
           )
         : null}
-    </LatestInYourCountryContainer>
+    </AsideContainer>
   );
 }
 

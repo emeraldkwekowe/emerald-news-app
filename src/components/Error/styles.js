@@ -14,7 +14,7 @@ export const ErrorContainer = styled.div`
   justify-content: center;
   margin-bottom: 30px;
   h4 {
-    font-size: 4vw;
+    font-size: 25px;
     margin-bottom: 0px;
     margin-top: 0px;
     color: ${pallete.red.R100};

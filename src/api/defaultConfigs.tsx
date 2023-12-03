@@ -20,19 +20,21 @@ export const eventRegistryConfig = {
   includeArticleCategories: true,
   //TODO: we still have a repetion problem despite this
   isDuplicateFilter: "skipDuplicates",
-  //Ignore sources with poor media
-  ignoreSourceUri: [
-    "twarak.com",
-    "crweworld.com",
-    "streetinsider.com",
-    "keyt.com",
-    "uk.advfn.com",
-    "freerepublic.com",
-    "herald.co.zw",
-    "thisdaylive.com",
-    "dailypolitical.com",
-    "thelincolnianonline.com",
-    "defenseworld.net",
-    "themarketsdaily.com",
-  ],
 };
+
+//Ignore sources with poor media
+export const ignoreSourceUri = [
+  "twarak.com",
+  "crweworld.com",
+  "streetinsider.com",
+  "keyt.com",
+  "uk.advfn.com",
+  "freerepublic.com",
+  "herald.co.zw",
+  "thisdaylive.com",
+  "dailypolitical.com",
+  "thelincolnianonline.com",
+  "defenseworld.net",
+  "themarketsdaily.com",
+  "freerepublic.com",
+];

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { pallete } from "../../../../helpers/constants";
 
-export const LatestInYourCountryContainer = styled.div`
+export const AsideContainer = styled.aside`
   width: auto;
   height: auto;
   border-radius: 12px;

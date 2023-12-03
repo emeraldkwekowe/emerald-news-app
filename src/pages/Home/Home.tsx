@@ -4,6 +4,7 @@ import NewsList from "./components/NewsList/NewsList";
 import { RightSection } from "./components/BestOfTheWeek/styles";
 import { MainContentContainer } from "./styles";
 import LatestInYourCountry from "./components/LatestInYourCountry/LatestInYourCountry";
+import Authors from "./components/Authors/Authors";
 
 function Home() {
   return (
@@ -17,6 +18,7 @@ function Home() {
         <RightSection>
           {/* Data sourced from newsapi.org */}
           <LatestInYourCountry />
+          <Authors />
         </RightSection>
       </MainContentContainer>
     </main>

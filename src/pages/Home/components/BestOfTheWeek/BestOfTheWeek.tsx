@@ -9,7 +9,7 @@ import { formatDate } from "../../../../helpers/functions";
 
 function BestOfTheWeek() {
   //Get preferences from global context
-  const { mySources, myCategories } = useUserPreferences();
+  const { myCategories } = useUserPreferences();
 
   //Get preffered categories from user preferences or use default categories if no preferences set
   const selectedCategories = (myCategories || DEFAULT_CATEGORIES).map(
@@ -29,20 +29,18 @@ function BestOfTheWeek() {
   //Extract articles from response
   const stories = data?.data?.response?.docs || [];
 
+  //If the user has set preferences (categories) then let them know they are seeing custom news, else, general news
+  const PAGE_TITLE = myCategories
+    ? `Top picks for you.`
+    : `Fresh off the boat.`;
+
   if (error && !data) {
     return <Error />;
   }
   return (
     <BestOfTheWeekContainer>
       <LeftSection>
-        <h1 className="animated fadeInUp delay3">
-          {
-            //If the user has set preferences (either sources or categories) then let them know they are seeing custom news, else they are seeing general entertainment news
-            mySources || myCategories
-              ? `Top picks for you.`
-              : `Fresh off the boat.`
-          }
-        </h1>
+        <h1 className="animated fadeInUp delay3">{PAGE_TITLE}</h1>
         <NewsBanner
           position="1"
           newsDesk={stories[0]?.news_desk}

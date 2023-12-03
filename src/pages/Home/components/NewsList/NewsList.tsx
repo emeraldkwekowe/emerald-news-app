@@ -7,7 +7,10 @@ import { NewsListLoader } from "../../../../components/LoadingCard/LoadingCard";
 import useUserPreferences from "../../../../context/UserPreferences/UseUserPreferences";
 import { usePostData } from "../../../../api/requests";
 import { endpoints } from "../../../../api/endpoints";
-import { eventRegistryConfig } from "../../../../api/defaultConfigs";
+import {
+  eventRegistryConfig,
+  ignoreSourceUri,
+} from "../../../../api/defaultConfigs";
 import Error from "../../../../components/Error/Error";
 import Button from "../../../../components/Button/Button";
 
@@ -28,6 +31,7 @@ function NewsList() {
       keyword: activeCategory === "all" ? null : activeCategory,
       //User's preffered sources or get all allowed sources
       sourceUri: mySources || null,
+      ignoreSourceUri: ignoreSourceUri,
     }
   );
 
