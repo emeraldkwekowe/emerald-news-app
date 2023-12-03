@@ -2,7 +2,8 @@ import styled from "styled-components";
 
 export const TopStoriesContainer = styled.div`
   width: auto;
-  height: 840px;
+  min-height: 820px;
+  height: auto;
   display: flex;
   justify-content: space-between;
   @media (max-width: 1100px) {

@@ -6,7 +6,7 @@ export const ButtonContainer = styled.button`
   height: 50px;
   border-radius: 30px;
   font-weight: 400;
-  background: ${pallete.white};
+  background: transparent;
   border: 2px solid ${pallete.dark.D300};
   padding: 5px 20px;
   display: flex;

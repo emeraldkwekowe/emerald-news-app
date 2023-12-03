@@ -12,4 +12,4 @@ export const post = async (url: string, config: any) =>
 
 //Use Query hook to fetch data
 export const useGetData = (title: string, url: string, config: {}) =>
-  useQuery(title, () => post(url, omitNullishFields(config)));
+  useQuery([title, config], () => post(url, omitNullishFields(config)));

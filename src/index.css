@@ -4,6 +4,12 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   padding: 25px 30px;
+
+  background-image: url(http://caards.codesupply.co/caards/wp-content/uploads/sites/2/2023/04/common-background.jpg);
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
+  background-attachment: fixed;
 }
 * {
   letter-spacing: -0.04em;

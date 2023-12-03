@@ -1,4 +1,4 @@
-//Default api configs
+//Default api config for eventregistry api (newsapi.api)
 export const eventRegistryConfig = {
   action: "getArticles",
   // keyword: "realestate",

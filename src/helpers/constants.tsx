@@ -12,6 +12,9 @@ export const pallete = {
   },
   blue: {
     B50: "#b8d3d8",
+    B75: "#59BACC",
+    B100: "#547ce9",
+    B200: "#1b50e0",
   },
   red: {
     R50: "#fef2f2",
@@ -26,4 +29,13 @@ export const DEFAULT_CATEGORIES = [
   "music",
   "health",
   "lifestyle",
+  "business",
+  //OTHERS
+  "opinion",
+  "politics",
+  "science",
+  "travel",
+  "arts",
+  "fashion",
+  "food",
 ];

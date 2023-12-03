@@ -29,8 +29,6 @@ function TopStories() {
   //Extract articles from response
   const stories = data?.data?.articles?.results || [];
 
-  console.log(status, error);
-
   if (error && !data) {
     return <Error />;
   }
@@ -45,7 +43,6 @@ function TopStories() {
               : `Best of this week.`
           }
         </h1>
-        {status === "error" && <p>Failed to get news</p>}
         <NewsBanner
           position="1"
           categories={stories[0]?.categories}
