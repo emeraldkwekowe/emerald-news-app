@@ -1,12 +1,12 @@
-# Getting Started with Create React App
+# Getting started
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+In the project directory, run:
 
-## Available Scripts
+### `yarn install` or (not-preffered) `npm install`
 
-In the project directory, you can run:
+To install all packages and dependencies
 
-### `npm start`
+### `yarn start` or (not-preffered) `npm start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
@@ -14,12 +14,55 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-### `npm test`
+### `yarn test` or (not-preffered) `npm test`
 
 Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+# Running Project in a Docker Container
+
+This guide will walk you through the process of containerizing and running this project using Docker.
+
+## Prerequisites
+
+- [Docker](https://docs.docker.com/get-docker/) installed on your machine.
+
+## Step 1: Clone the Project
+
+Clone the React project from the repository:
+
+```bash
+git clone https://github.com/emeraldkwekowe/emerald-news-app.git
+```
+
+## Step 2: Build the Docker Image
+
+Open a terminal and navigate to the project root directory (or simply open the project in an IDE with inbuilt terminal support). Run the following command to build the Docker image:
+
+```bash
+docker build -t emerald-news-app .
+```
+
+## Step 3: Run the Docker Container
+
+After building the image, you can run the Docker container using the following command:
+
+```bash
+docker run -it --rm -p 3001:3000 emerald-news-app
+```
+
+This command maps port 3001 on your host machine to port 3000 on the Docker container. Please configure your host machine port as needed to ensure the port is forwarded correctly.
+
+## Step 4: Access the Application
+
+Visit `http://localhost:3001` in your web browser to access the test submission.
+
+---
+
+This documentation provides a step-by-step guide for running the test submission in a Docker container. Kindly note that this project uses yarn.
+
+# Other commands
+
+### `yarn run build` or (not-preffered) `npm run build`
 
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
