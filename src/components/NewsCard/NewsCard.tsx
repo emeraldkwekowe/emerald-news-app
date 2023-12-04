@@ -10,7 +10,7 @@ interface Props {
   categories: { label?: string }[];
   body: string;
   source: { uri: string };
-  activeCategory: string;
+  activeCategory?: string;
 }
 
 function NewsCard(props: Props) {
@@ -27,15 +27,13 @@ function NewsCard(props: Props) {
       role="img"
       aria-label={title}
     >
-      <div
-        className="image"
-        style={{
-          backgroundImage: `url(${image})`,
-        }}
-      ></div>
+      <div className="image">
+        <img src={image} alt={title} />
+      </div>
+
       <div className="text">
         <h4>
-          {activeCategory === "all"
+          {activeCategory === "all" || !activeCategory
             ? getPrimaryCategory(categories)
             : activeCategory}{" "}
           - <b> {source?.uri}</b>

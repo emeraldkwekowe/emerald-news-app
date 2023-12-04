@@ -23,10 +23,10 @@ function Home() {
   return (
     <main>
       <Header personalize={() => setShowPersonalizeInterface(true)} />
-      {/*Data sourced from NewYorkTimes API*/}
+      {/*Data sourced from New York Times API*/}
       <BestOfTheWeek />
       <MainContentContainer ref={userFeedRef}>
-        {/*Data sourced from newsapi.api - eventregistry*/}
+        {/*Data sourced from Newsapi.api - eventregistry*/}
         <NewsList personalize={() => setShowPersonalizeInterface(true)} />
         <RightSection>
           {/* Data sourced from newsapi.org */}

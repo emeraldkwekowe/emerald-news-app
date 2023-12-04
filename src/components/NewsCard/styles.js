@@ -25,6 +25,11 @@ export const NewsCardContainer = styled.a`
     background: ${pallete.dark.D50};
     background-size: cover;
     background-position: center;
+    overflow: hidden;
+    max-height: 350px;
+    img {
+      height: 100%;
+    }
   }
   .text {
     width: 55%;

@@ -36,7 +36,7 @@ function Authors() {
     const getData = async () => {
       try {
         const results: Story[] = await getAuthorPosts(
-          endpoints?.getTopStories,
+          endpoints?.getNewsArticles,
           selectedAuthors
         );
         setStories(results);

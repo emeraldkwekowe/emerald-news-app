@@ -7,6 +7,7 @@ import UserPreferencesProvider from "./context/UserPreferences/UserPreferencesCo
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Search from "./pages/Search/Search";
 
 const queryClient = new QueryClient();
 
@@ -17,7 +18,8 @@ root.render(
   <React.StrictMode>
     <UserPreferencesProvider>
       <QueryClientProvider client={queryClient}>
-        <Home />
+        {/* <Home /> */}
+        <Search />
         <ToastContainer />
       </QueryClientProvider>
     </UserPreferencesProvider>

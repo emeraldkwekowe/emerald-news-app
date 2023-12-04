@@ -10,9 +10,7 @@ export const getPrimaryCategory = (categories: { label?: string }[]) => {
 };
 
 //Function to remove nullish fields for the newsapi.api endpoint
-export const omitNullishFields = (object: {
-  [key: string]: string | number;
-}) => {
+export const omitNullishFields = (object: { [key: string]: any }) => {
   Object.keys(object).forEach((key) => {
     if (object[key] === null) {
       delete object[key];

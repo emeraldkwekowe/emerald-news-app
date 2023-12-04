@@ -41,7 +41,6 @@ function PersonalizeAuthors({ back }: { back: () => void }) {
         Select up to 10 authors to see on the landing page. The top 5 authors
         have already been added for you.
       </p>
-
       <h4>Selected Authors</h4>
       <CategoriesContainer className="animated fadeInUp">
         {selectedAuthors?.length ? (

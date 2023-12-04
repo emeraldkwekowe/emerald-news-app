@@ -3,11 +3,9 @@ body {
   font-family: "Manrope", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  padding: 25px 30px;
   max-width: 1900px;
   margin: 0 auto;
 
-  background-image: url(http://caards.codesupply.co/caards/wp-content/uploads/sites/2/2023/04/common-background.jpg);
   background-repeat: no-repeat;
   background-position: center top;
   background-size: cover;

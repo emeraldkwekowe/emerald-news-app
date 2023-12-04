@@ -14,6 +14,7 @@ import {
 import Error from "../../../../components/Error/Error";
 import Button from "../../../../components/Button/Button";
 import { formatDate } from "../../../../helpers/functions";
+import { Story } from "../../../Search/types";
 
 function NewsList({ personalize }: { personalize: () => void }) {
   const [activeCategory, setActiveCategory] = useState("all");
@@ -28,7 +29,7 @@ function NewsList({ personalize }: { personalize: () => void }) {
   //Get news data from event registry api (newsapi.ai) using the react-query api
   const { status, data, error } = usePostData(
     "allStories__Eventregistry",
-    endpoints?.getTopStories,
+    endpoints?.getNewsArticles,
     {
       ...eventRegistryConfig,
       articlesCount,
@@ -89,24 +90,13 @@ function NewsList({ personalize }: { personalize: () => void }) {
       </CategoriesContainer>
       {status === "loading" && <NewsListLoader />}
       {error && !data && <Error />}
-      {stories?.map(
-        (story: {
-          title: string;
-          image: string;
-          date: string;
-          url: string;
-          categories: { label?: string }[];
-          body: string;
-          source: { uri: string };
-          uri: string;
-        }) => (
-          <NewsCard
-            key={story?.uri}
-            activeCategory={activeCategory}
-            {...{ ...story, date: new Date(stories[0]?.date).toDateString() }}
-          />
-        )
-      )}
+      {stories?.map((story: Story) => (
+        <NewsCard
+          key={story?.uri}
+          activeCategory={activeCategory}
+          {...{ ...story, date: new Date(stories[0]?.date).toDateString() }}
+        />
+      ))}
 
       {stories?.length ? (
         <Button onClick={() => setArticlesCount(articlesCount + 15)}>

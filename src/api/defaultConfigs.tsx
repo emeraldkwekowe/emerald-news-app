@@ -4,7 +4,6 @@ import { formatDate } from "../helpers/functions";
 //Default api config for eventregistry api (newsapi.api)
 export const eventRegistryConfig = {
   action: "getArticles",
-  // keyword: "realestate",
   articlesPage: 1,
   lang: "eng",
   dateStart: formatDate(new Date(), true),
@@ -37,4 +36,6 @@ export const ignoreSourceUri = [
   "defenseworld.net",
   "themarketsdaily.com",
   "freerepublic.com",
+  "idea.int",
+  "orchidboard.com",
 ];
