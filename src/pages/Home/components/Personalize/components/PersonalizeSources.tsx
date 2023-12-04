@@ -44,7 +44,7 @@ function PersonalizeSources({ back }: { back: () => void }) {
 
       <h4>Selected Sources</h4>
 
-      <CategoriesContainer className="animated fadeInUp delay2">
+      <CategoriesContainer className="animated fadeInUp">
         {selectedSources?.length ? (
           selectedSources?.map((category: SourcesObjectType) => (
             <CategoryButton
@@ -62,12 +62,12 @@ function PersonalizeSources({ back }: { back: () => void }) {
         <CategoryButton className="item__a active">+ Add source</CategoryButton>
       </CategoriesContainer>
       <ModalFooter>
-        <Button className="delay3" onClick={back}>
+        <Button className="delay1" onClick={back}>
           Go back
         </Button>
         <Button
           disabled={isDisabled}
-          className="delay4"
+          className="delay1"
           variant="filled"
           onClick={Submit}
         >

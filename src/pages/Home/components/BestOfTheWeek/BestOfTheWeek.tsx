@@ -3,7 +3,7 @@ import { get } from "../../../../api/requests";
 import NewsBanner from "../../../../components/NewsBanner/NewsBanner";
 import { LeftSection, RightSection, BestOfTheWeekContainer } from "./styles";
 import useUserPreferences from "../../../../context/UserPreferences/UseUserPreferences";
-import { API_KEYS, DEFAULT_CATEGORIES } from "../../../../helpers/constants";
+import { API_KEYS } from "../../../../helpers/constants";
 import Error from "../../../../components/Error/Error";
 import { formatDate } from "../../../../helpers/functions";
 import { useEffect, useState } from "react";
@@ -25,11 +25,6 @@ function BestOfTheWeek() {
   //Get preferences from global context
   const { myCategories } = useUserPreferences();
 
-  //Get preffered categories from user preferences or use default categories if no preferences set
-  const selectedCategories = (myCategories || DEFAULT_CATEGORIES).map(
-    (category) => `"${category}"`
-  );
-
   //Reusable stop loading function to ensure DRY
   const stopLoading = () => {
     setLoading(false);
@@ -42,11 +37,11 @@ function BestOfTheWeek() {
         const results = await get(
           endpoints?.nytStories +
             `?api-key=${API_KEYS?.nytStories}&begin_date=${formatDate(
-              new Date(),
+              new Date(new Date(new Date().setDate(new Date().getDate() - 1))),
               true
-            )}&sort=newest&fq=news_desk:(${selectedCategories.join(",")})`
+            )}&sort=newest&fq=news_desk:("Sports", "Foreign", "Politics", "Business", "Technology")            `
         );
-        setStories(results?.data);
+        setStories(results?.data?.response?.docs);
         setError(false);
         stopLoading();
       } catch (error: any) {
@@ -55,7 +50,7 @@ function BestOfTheWeek() {
       }
     };
     getData();
-  }, [selectedCategories]);
+  }, []);
 
   //If the user has set preferences (categories) then let them know they are seeing custom news, else, general news
   const PAGE_TITLE = myCategories

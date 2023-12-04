@@ -69,7 +69,7 @@ function NewsBanner(props: Props) {
             </span>
           </h2>
           {!small && <BodyText>{body && reduceTextSize(body, 500)}</BodyText>}
-          <Button variant="filled" className="white">
+          <Button variant="filled" className="white icon">
             <ArrowRight />
           </Button>
         </NewsBannerContainer>
