@@ -15,6 +15,7 @@ interface Story {
   multimedia: { url: string }[];
   pub_date: string;
   abstract: string;
+  lead_paragraph: string;
 }
 
 function BestOfTheWeek() {
@@ -41,7 +42,10 @@ function BestOfTheWeek() {
               true
             )}&sort=newest&fq=news_desk:("Sports", "Foreign", "Politics", "Business", "Technology")            `
         );
-        setStories(results?.data?.response?.docs);
+        const docs = results?.data?.response?.docs;
+        setStories(
+          docs.filter((item: { multimedia: {}[] }) => item?.multimedia?.length)
+        );
         setError(false);
         stopLoading();
       } catch (error: any) {
@@ -71,7 +75,7 @@ function BestOfTheWeek() {
           title={stories[0]?.headline?.main}
           url={stories[0]?.web_url}
           image={"https://nytimes.com/" + stories[0]?.multimedia[11]?.url}
-          body={stories[0]?.abstract}
+          body={stories[0]?.abstract + " " + stories[0]?.lead_paragraph}
           //Add date logic here so the NewsBanner component remains a pure component and can be memoized
           date={formatDate(stories[0]?.pub_date)}
         />

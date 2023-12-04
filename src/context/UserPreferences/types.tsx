@@ -7,7 +7,11 @@ export type SourcesObjectType = {
   title: string;
 };
 
-export type UpdatePreferencesFnTypes = "authors" | "sources" | "categories";
+export type UpdatePreferencesFnTypes =
+  | "authors"
+  | "sources"
+  | "categories"
+  | "clear";
 
 export type UserPreferencesContextType = {
   myAuthors: string[] | null;

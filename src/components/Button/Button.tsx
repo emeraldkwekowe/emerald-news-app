@@ -3,7 +3,7 @@ import { ButtonContainer } from "./styles";
 
 interface ButtonTypes {
   children: React.ReactNode;
-  variant?: "filled" | "outline";
+  variant?: "filled" | "outline" | "text";
   className?: String;
   useLink?: boolean;
   style?: React.CSSProperties;

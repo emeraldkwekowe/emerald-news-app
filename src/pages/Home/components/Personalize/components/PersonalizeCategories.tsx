@@ -34,8 +34,8 @@ function PersonalizeCategories({ back }: { back: () => void }) {
     <>
       <h3>What categories are you interested in?</h3>
       <p>
-        Select up to 60 categories for your news feed. The top 13 categories
-        have already been added for you.
+        Select up to 60 categories for your news feed. The top categories have
+        already been added for you.
       </p>
       <SearchForm />
 

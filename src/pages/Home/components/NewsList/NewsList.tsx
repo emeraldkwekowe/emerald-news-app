@@ -25,7 +25,7 @@ function NewsList({ personalize }: { personalize: () => void }) {
   //Get preferences from global context
   const { mySources, myCategories } = useUserPreferences();
 
-  //Get news data from event registry api (newsapi.ai)
+  //Get news data from event registry api (newsapi.ai) using the react-query api
   const { status, data, error } = usePostData(
     "allStories__Eventregistry",
     endpoints?.getTopStories,

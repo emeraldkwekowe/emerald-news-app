@@ -10,13 +10,13 @@ export const NewsBannerContainer = styled.a`
   display: flex;
   justify-content: space-between;
   position: relative;
-  background-size: auto 100%;
+  background-size: 100% auto;
   background-color: ${pallete.blue.B50};
   background-position: center;
   transition: all 0.6s ease;
 
   &:hover {
-    background-size: auto 120%;
+    background-size: 120% auto;
     h2 {
       span {
         text-decoration: underline;

@@ -28,7 +28,7 @@ export const PersonalizationContainer = styled.div`
     left: 0;
     right: 0;
     margin: 0 auto;
-    padding: 30px 40px 50px;
+    padding: 30px 40px 30px;
     border-radius: 10px;
     svg.close {
       position: absolute;

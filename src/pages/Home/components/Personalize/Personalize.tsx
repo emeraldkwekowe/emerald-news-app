@@ -11,9 +11,26 @@ import { ReactComponent as CloseIcon } from "../../../../Assets/close.svg";
 import { ReactComponent as CategoriesIcon } from "../../../../Assets/Categories.svg";
 import { ReactComponent as AuthorsIcon } from "../../../../Assets/Users.svg";
 import { ReactComponent as SourcesIcon } from "../../../../Assets/Sources.svg";
+import Button from "../../../../components/Button/Button";
+import useUserPreferences from "../../../../context/UserPreferences/UseUserPreferences";
+import { toast } from "react-toastify";
 
-function Personalize({ close }: { close: () => void }) {
+function Personalize({
+  close,
+  scrollToFeed,
+}: {
+  close: () => void;
+  scrollToFeed: () => void;
+}) {
+  const { updatePreferences } = useUserPreferences();
   const [page, setPage] = useState(0);
+
+  const clearPreferences = () => {
+    updatePreferences("clear", null);
+    toast.success("Successfully cleared all personalization.");
+    close();
+    scrollToFeed();
+  };
   return (
     <PersonalizationContainer>
       <div className="overlay" onClick={close}></div>
@@ -49,6 +66,14 @@ function Personalize({ close }: { close: () => void }) {
                 <p>Select authors (Richard Quest e.t.c)</p>
               </ModalBox>
             </ModalBoxContainer>
+            <Button
+              variant="text"
+              className="underline"
+              style={{ margin: "15px auto 0px" }}
+              onClick={clearPreferences}
+            >
+              Clear all personalization
+            </Button>
           </>
         )}
         {page === 1 && <PersonalizeCategories back={() => setPage(0)} />}

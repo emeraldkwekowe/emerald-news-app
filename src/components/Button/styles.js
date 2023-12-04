@@ -20,6 +20,18 @@ export const ButtonContainer = styled.button`
   svg {
     height: 20px;
   }
+  &.text {
+    border: 0;
+    padding: 0;
+    &.underline {
+      text-decoration: underline;
+      font-size: 15px;
+    }
+    &:hover {
+      background: unset;
+      color: ${pallete.blue.B200};
+    }
+  }
   &.filled {
     background: ${pallete.dark.D300};
     color: ${pallete.white};

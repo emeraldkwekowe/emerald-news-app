@@ -6,17 +6,26 @@ import { MainContentContainer } from "./styles";
 import LatestInYourCountry from "./components/LatestInYourCountry/LatestInYourCountry";
 import Authors from "./components/Authors/Authors";
 import Personalize from "./components/Personalize/Personalize";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 function Home() {
   const [showPersonalizeInterface, setShowPersonalizeInterface] =
     useState(false);
+
+  const userFeedRef = useRef<HTMLDivElement>(null);
+
+  const scrollToFeed = () => {
+    userFeedRef.current?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  };
   return (
     <main>
       <Header personalize={() => setShowPersonalizeInterface(true)} />
       {/*Data sourced from NewYorkTimes API*/}
       <BestOfTheWeek />
-      <MainContentContainer>
+      <MainContentContainer ref={userFeedRef}>
         {/*Data sourced from newsapi.api - eventregistry*/}
         <NewsList personalize={() => setShowPersonalizeInterface(true)} />
         <RightSection>
@@ -26,7 +35,10 @@ function Home() {
         </RightSection>
       </MainContentContainer>
       {showPersonalizeInterface && (
-        <Personalize close={() => setShowPersonalizeInterface(false)} />
+        <Personalize
+          close={() => setShowPersonalizeInterface(false)}
+          scrollToFeed={scrollToFeed}
+        />
       )}
     </main>
   );

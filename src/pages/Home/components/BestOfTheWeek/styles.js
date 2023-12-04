@@ -15,7 +15,7 @@ export const LeftSection = styled.div`
   width: 69%;
   h1 {
     font-size: 6.24vw;
-    letter-spacing: -0.03em;
+    letter-spacing: -0.05em;
     margin-top: 0;
     margin-bottom: 24px;
   }

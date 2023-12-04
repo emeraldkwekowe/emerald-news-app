@@ -7,6 +7,9 @@ export const HeaderContainer = styled.header`
   p {
     font-size: 15px;
     margin-left: 30px;
+    font-weight: 500;
+    font-style: italic;
+    letter-spacing: -0.01rem;
   }
 `;
 
@@ -16,5 +19,4 @@ export const Logo = styled.a`
   text-decoration: none;
   font-size: 30px;
   letter-spacing: -0.07rem;
-  font-style: italic;
 `;

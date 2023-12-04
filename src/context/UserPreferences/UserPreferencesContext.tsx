@@ -32,6 +32,11 @@ const UserPreferencesProvider = ({ children }: UserPreferencesProviderType) => {
       case "sources":
         setMySources(value);
         break;
+      case "clear":
+        setMyAuthors(null);
+        setMySources(null);
+        setMyCategories(null);
+        break;
       default:
         break;
     }
