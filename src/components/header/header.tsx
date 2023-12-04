@@ -1,10 +1,12 @@
 import Button from "../Button/Button";
 import { HeaderContainer, Logo } from "./styles";
 import { ReactComponent as SearchIcon } from "../../Assets/Icon-feather-search.svg";
-import { useState } from "react";
+import { ReactComponent as HomeIcon } from "../../Assets/Icon-metro-home.svg";
+import { memo, useState } from "react";
+import { Link } from "react-router-dom";
 
 interface Props {
-  personalize: () => void;
+  personalize?: () => void;
   isFilled?: boolean;
   isSearch?: boolean;
   searchFn?: (value: string) => void;
@@ -21,12 +23,12 @@ function Header({ personalize, isFilled, isSearch, searchFn }: Props) {
   return (
     //TODO: test this
     <HeaderContainer className={isFilled ? "filled" : ""}>
-      <Logo href="#!" className="logo animated fadeIn">
-        Emerald hub.
-      </Logo>
+      <Link to="/">
+        <Logo className="logo animated fadeIn">News hub.</Logo>
+      </Link>
 
       {!isSearch ? (
-        <p className="animated fadeInUp delay2">
+        <p className="animated fadeInUp delay2" style={{ marginRight: "auto" }}>
           Articles, news and updates from your favorite sources.
         </p>
       ) : (
@@ -40,19 +42,32 @@ function Header({ personalize, isFilled, isSearch, searchFn }: Props) {
       )}
 
       <div style={{ display: "flex" }}>
-        <Button variant="filled" className="delay3 icon">
-          <SearchIcon />
-        </Button>
-        <Button
-          className="delay4"
-          onClick={personalize}
-          style={{ marginLeft: 10 }}
-        >
-          Personalize feed
-        </Button>
+        {!isSearch ? (
+          <Link to="/search">
+            <Button variant="filled" className="delay2 icon">
+              <SearchIcon />
+            </Button>
+          </Link>
+        ) : (
+          <Link to="/">
+            <Button variant="filled" className="delay2 icon">
+              <HomeIcon />
+            </Button>
+          </Link>
+        )}
+
+        {!isSearch && (
+          <Button
+            className="delay2"
+            onClick={personalize}
+            style={{ marginLeft: 10 }}
+          >
+            Personalize feed
+          </Button>
+        )}
       </div>
     </HeaderContainer>
   );
 }
 
-export default Header;
+export default memo(Header);

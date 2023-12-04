@@ -1,4 +1,4 @@
-import { LeftSection } from "../BestOfTheWeek/styles";
+import { LeftSection } from "../FreshOffTheBoat/styles";
 import NewsCard from "../../../../components/NewsCard/NewsCard";
 import { CategoriesContainer, CategoryButton } from "./styles";
 import { useEffect, useState } from "react";

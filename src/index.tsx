@@ -2,12 +2,11 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
-import Home from "./pages/Home/Home";
 import UserPreferencesProvider from "./context/UserPreferences/UserPreferencesContext";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Search from "./pages/Search/Search";
+import Routes from "./routes/Routes";
 
 const queryClient = new QueryClient();
 
@@ -18,8 +17,7 @@ root.render(
   <React.StrictMode>
     <UserPreferencesProvider>
       <QueryClientProvider client={queryClient}>
-        {/* <Home /> */}
-        <Search />
+        <Routes />
         <ToastContainer />
       </QueryClientProvider>
     </UserPreferencesProvider>

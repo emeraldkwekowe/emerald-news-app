@@ -4,7 +4,7 @@ import { MainContentContainer } from "../Home/styles";
 import {
   LeftSection as NewsPane,
   RightSection as FilterPane,
-} from "../Home/components/BestOfTheWeek/styles";
+} from "../Home/components/FreshOffTheBoat/styles";
 import { useEffect, useState } from "react";
 import { DEFAULT_CATEGORIES, DEFAULT_SOURCES } from "../../helpers/constants";
 import { post } from "../../api/requests";
@@ -108,7 +108,6 @@ function Search() {
   return (
     <SearchContainer>
       <Header
-        personalize={() => alert("ok")}
         isFilled
         isSearch
         searchFn={(value: string) => UpdateFilter("categories", value)}

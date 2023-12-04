@@ -1,12 +1,12 @@
 import Header from "../../components/Header/Header";
-import BestOfTheWeek from "./components/BestOfTheWeek/BestOfTheWeek";
 import NewsList from "./components/NewsList/NewsList";
-import { RightSection } from "./components/BestOfTheWeek/styles";
+import { RightSection } from "./components/FreshOffTheBoat/styles";
 import { MainContentContainer } from "./styles";
 import LatestInYourCountry from "./components/LatestInYourCountry/LatestInYourCountry";
 import Authors from "./components/Authors/Authors";
 import Personalize from "./components/Personalize/Personalize";
 import { useRef, useState } from "react";
+import FreshOffTheBoat from "./components/FreshOffTheBoat/FreshOffTheBoat";
 
 function Home() {
   const [showPersonalizeInterface, setShowPersonalizeInterface] =
@@ -24,7 +24,7 @@ function Home() {
     <main>
       <Header personalize={() => setShowPersonalizeInterface(true)} />
       {/*Data sourced from New York Times API*/}
-      <BestOfTheWeek />
+      <FreshOffTheBoat />
       <MainContentContainer ref={userFeedRef}>
         {/*Data sourced from Newsapi.api - eventregistry*/}
         <NewsList personalize={() => setShowPersonalizeInterface(true)} />

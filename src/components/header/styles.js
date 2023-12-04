@@ -11,6 +11,9 @@ export const HeaderContainer = styled.header`
     height: 50px;
     box-shadow: 0px 0.7px 3px rgba(0, 0, 0, 0.05);
   }
+  a {
+    text-decoration: none;
+  }
   p {
     font-size: 15px;
     margin-left: 30px;
@@ -41,10 +44,11 @@ export const HeaderContainer = styled.header`
   }
 `;
 
-export const Logo = styled.a`
+export const Logo = styled.span`
   color: ${pallete.dark.D500};
   font-weight: 800;
   text-decoration: none;
   font-size: 30px;
   letter-spacing: -0.07rem;
+  text-decoration: none;
 `;

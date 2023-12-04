@@ -1,7 +1,7 @@
 import { endpoints } from "../../../../api/endpoints";
 import { get } from "../../../../api/requests";
 import NewsBanner from "../../../../components/NewsBanner/NewsBanner";
-import { LeftSection, RightSection, BestOfTheWeekContainer } from "./styles";
+import { LeftSection, RightSection, MainContentContainer } from "./styles";
 import useUserPreferences from "../../../../context/UserPreferences/UseUserPreferences";
 import { API_KEYS } from "../../../../helpers/constants";
 import Error from "../../../../components/Error/Error";
@@ -18,7 +18,7 @@ interface Story {
   lead_paragraph: string;
 }
 
-function BestOfTheWeek() {
+function FreshOffTheBoat() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | boolean>(false);
   const [stories, setStories] = useState<Story[] | []>([]);
@@ -65,7 +65,7 @@ function BestOfTheWeek() {
     return <Error />;
   }
   return (
-    <BestOfTheWeekContainer>
+    <MainContentContainer>
       <LeftSection>
         <h1 className="animated fadeInUp delay3">{PAGE_TITLE}</h1>
         <NewsBanner
@@ -104,8 +104,8 @@ function BestOfTheWeek() {
           date={formatDate(stories[2]?.pub_date)}
         />
       </RightSection>
-    </BestOfTheWeekContainer>
+    </MainContentContainer>
   );
 }
 
-export default BestOfTheWeek;
+export default FreshOffTheBoat;

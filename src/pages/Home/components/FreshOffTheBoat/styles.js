@@ -1,10 +1,11 @@
 import styled from "styled-components";
 
-export const BestOfTheWeekContainer = styled.div`
+export const MainContentContainer = styled.div`
   width: auto;
   min-height: 820px;
   height: auto;
   display: flex;
+  padding: 0px 30px 10px;
   justify-content: space-between;
   @media (max-width: 1100px) {
     flex-direction: column;
