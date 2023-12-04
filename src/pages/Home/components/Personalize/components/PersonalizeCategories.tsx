@@ -8,7 +8,7 @@ import SearchForm from "./SearchForm";
 import { useState } from "react";
 import { toast } from "react-toastify";
 
-function PersonalizeCategories() {
+function PersonalizeCategories({ back }: { back: () => void }) {
   const { myCategories, updatePreferences } = useUserPreferences();
 
   //Get preffered categories from user preferences or use top authors if no preferences set
@@ -34,14 +34,14 @@ function PersonalizeCategories() {
     <>
       <h3>What categories are you interested in?</h3>
       <p>
-        Select up to 60 categories to see on the landing page. The top 13
-        categories have already been added for you.
+        Select up to 60 categories for your news feed. The top 13 categories
+        have already been added for you.
       </p>
       <SearchForm />
 
       <h4>Selected Categories</h4>
 
-      <CategoriesContainer className="animated fadeInUp delay2">
+      <CategoriesContainer className="animated fadeInUp">
         {selectedCategories?.length ? (
           selectedCategories?.map((category) => (
             <CategoryButton
@@ -50,7 +50,7 @@ function PersonalizeCategories() {
               onClick={() => removeCategory(category)}
             >
               {category}
-              <CloseIcon style={{ height: 20, marginLeft: 10, width: 20 }} />
+              <CloseIcon />
             </CategoryButton>
           ))
         ) : (
@@ -58,10 +58,12 @@ function PersonalizeCategories() {
         )}
       </CategoriesContainer>
       <ModalFooter>
-        <Button className="delay3">Go back</Button>
+        <Button className="delay1" onClick={back}>
+          Go back
+        </Button>
         <Button
-          disabled={selectedCategories.length < 6}
-          className="delay4"
+          disabled={selectedCategories.length < 2}
+          className="delay1"
           variant="filled"
           onClick={Submit}
         >

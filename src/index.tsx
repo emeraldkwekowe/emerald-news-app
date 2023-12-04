@@ -5,7 +5,7 @@ import reportWebVitals from "./reportWebVitals";
 import Home from "./pages/Home/Home";
 import UserPreferencesProvider from "./context/UserPreferences/UserPreferencesContext";
 import { QueryClient, QueryClientProvider } from "react-query";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const queryClient = new QueryClient();

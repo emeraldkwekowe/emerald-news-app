@@ -2,7 +2,7 @@ import Button from "../Button/Button";
 import { HeaderContainer, Logo } from "./styles";
 import { ReactComponent as SearchIcon } from "../../Assets/Icon-feather-search.svg";
 
-function Header() {
+function Header({ personalize }: { personalize: () => void }) {
   return (
     //TODO: test this
     <HeaderContainer>
@@ -16,7 +16,11 @@ function Header() {
         <Button variant="filled" className="delay3 icon">
           <SearchIcon />
         </Button>
-        <Button className="delay4" style={{ marginLeft: 10 }}>
+        <Button
+          className="delay4"
+          onClick={personalize}
+          style={{ marginLeft: 10 }}
+        >
           Personalize feed
         </Button>
       </div>

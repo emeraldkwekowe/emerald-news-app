@@ -1,13 +1,27 @@
 import { endpoints } from "../../../../api/endpoints";
-import { useGetData } from "../../../../api/requests";
+import { get } from "../../../../api/requests";
 import NewsBanner from "../../../../components/NewsBanner/NewsBanner";
 import { LeftSection, RightSection, BestOfTheWeekContainer } from "./styles";
 import useUserPreferences from "../../../../context/UserPreferences/UseUserPreferences";
 import { API_KEYS, DEFAULT_CATEGORIES } from "../../../../helpers/constants";
 import Error from "../../../../components/Error/Error";
 import { formatDate } from "../../../../helpers/functions";
+import { useEffect, useState } from "react";
+
+interface Story {
+  news_desk: string;
+  headline: { main: string };
+  web_url: string;
+  multimedia: { url: string }[];
+  pub_date: string;
+  abstract: string;
+}
 
 function BestOfTheWeek() {
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | boolean>(false);
+  const [stories, setStories] = useState<Story[] | []>([]);
+
   //Get preferences from global context
   const { myCategories } = useUserPreferences();
 
@@ -16,25 +30,39 @@ function BestOfTheWeek() {
     (category) => `"${category}"`
   );
 
-  //Get data for the top 3 stories of the day
-  const { status, data, error } = useGetData(
-    "BestOfTheWeek",
-    endpoints?.nytStories +
-      `?api-key=${API_KEYS?.nytStories}&begin_date=${formatDate(
-        new Date(),
-        true
-      )}&sort=newest&fq=news_desk:(${selectedCategories.join(",")})`
-  );
+  //Reusable stop loading function to ensure DRY
+  const stopLoading = () => {
+    setLoading(false);
+  };
 
-  //Extract articles from response
-  const stories = data?.data?.response?.docs || [];
+  //Get data for the top 3 stories of the day
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const results = await get(
+          endpoints?.nytStories +
+            `?api-key=${API_KEYS?.nytStories}&begin_date=${formatDate(
+              new Date(),
+              true
+            )}&sort=newest&fq=news_desk:(${selectedCategories.join(",")})`
+        );
+        setStories(results?.data);
+        setError(false);
+        stopLoading();
+      } catch (error: any) {
+        setError(error?.message || "Something went wrong");
+        stopLoading();
+      }
+    };
+    getData();
+  }, [selectedCategories]);
 
   //If the user has set preferences (categories) then let them know they are seeing custom news, else, general news
   const PAGE_TITLE = myCategories
     ? `Top picks for you.`
     : `Fresh off the boat.`;
 
-  if (error && !data) {
+  if (error) {
     return <Error />;
   }
   return (
@@ -42,6 +70,7 @@ function BestOfTheWeek() {
       <LeftSection>
         <h1 className="animated fadeInUp delay3">{PAGE_TITLE}</h1>
         <NewsBanner
+          loading={loading}
           position="1"
           newsDesk={stories[0]?.news_desk}
           title={stories[0]?.headline?.main}
@@ -50,11 +79,11 @@ function BestOfTheWeek() {
           body={stories[0]?.abstract}
           //Add date logic here so the NewsBanner component remains a pure component and can be memoized
           date={formatDate(stories[0]?.pub_date)}
-          status={status}
         />
       </LeftSection>
       <RightSection>
         <NewsBanner
+          loading={loading}
           position="2"
           small
           className="delay2"
@@ -63,9 +92,9 @@ function BestOfTheWeek() {
           url={stories[1]?.web_url}
           image={"https://nytimes.com/" + stories[1]?.multimedia[6]?.url}
           date={formatDate(stories[1]?.pub_date)}
-          status={status}
         />
         <NewsBanner
+          loading={loading}
           position="3"
           small
           className="delay3"
@@ -74,7 +103,6 @@ function BestOfTheWeek() {
           url={stories[2]?.web_url}
           image={"https://nytimes.com/" + stories[2]?.multimedia[6]?.url}
           date={formatDate(stories[2]?.pub_date)}
-          status={status}
         />
       </RightSection>
     </BestOfTheWeekContainer>

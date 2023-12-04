@@ -7,7 +7,7 @@ import { ReactComponent as CloseIcon } from "../../../../../Assets/close.svg";
 import { toast } from "react-toastify";
 import { useState } from "react";
 
-function PersonalizeAuthors() {
+function PersonalizeAuthors({ back }: { back: () => void }) {
   const { myAuthors, updatePreferences } = useUserPreferences();
 
   //Function to get author's name from uri
@@ -17,6 +17,7 @@ function PersonalizeAuthors() {
   const AUTHORS = myAuthors || TOP_AUTHORS;
 
   const [selectedAuthors, setSelectedAuthors] = useState(AUTHORS);
+  const [isDisabled, setIsDisabled] = useState(true);
 
   const removeCategory = (category: string) => {
     const array = new Array(...selectedAuthors);
@@ -24,6 +25,7 @@ function PersonalizeAuthors() {
     if (index !== -1) {
       array.splice(index, 1);
       setSelectedAuthors(array);
+      setIsDisabled(false);
     }
   };
 
@@ -41,7 +43,7 @@ function PersonalizeAuthors() {
       </p>
 
       <h4>Selected Authors</h4>
-      <CategoriesContainer className="animated fadeInUp delay2">
+      <CategoriesContainer className="animated fadeInUp">
         {selectedAuthors?.length ? (
           selectedAuthors?.map((author) => (
             <CategoryButton
@@ -50,7 +52,7 @@ function PersonalizeAuthors() {
               onClick={() => removeCategory(author)}
             >
               {getAuthorName(author)}
-              <CloseIcon style={{ height: 20, marginLeft: 10, width: 20 }} />
+              <CloseIcon />
             </CategoryButton>
           ))
         ) : (
@@ -58,11 +60,13 @@ function PersonalizeAuthors() {
         )}
       </CategoriesContainer>
       <ModalFooter>
-        <Button className="delay3">Go back</Button>
+        <Button className="delay1" onClick={back}>
+          Go back
+        </Button>
         <Button
-          className="delay4"
+          className="delay1"
           variant="filled"
-          disabled={selectedAuthors.length < 5}
+          disabled={selectedAuthors.length < 3 || isDisabled}
           onClick={Submit}
         >
           Submit

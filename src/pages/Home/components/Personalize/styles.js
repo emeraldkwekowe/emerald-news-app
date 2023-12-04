@@ -30,6 +30,19 @@ export const PersonalizationContainer = styled.div`
     margin: 0 auto;
     padding: 30px 40px 50px;
     border-radius: 10px;
+    svg.close {
+      position: absolute;
+      right: 0;
+      top: 0;
+      margin: 20px;
+      cursor: pointer;
+      opacity: 0.8;
+      &:hover {
+        opacity: 1;
+        transform: scale(1.1);
+      }
+    }
+
     h3 {
       letter-spacing: -0.02em;
       font-size: 25px;
@@ -52,15 +65,27 @@ export const PersonalizationContainer = styled.div`
       margin-top: 10px;
     }
     .item__a {
+      svg {
+        margin-left: 10px;
+        width: 15px;
+        height: 15px;
+        opacity: 0.5;
+      }
       &:hover {
-        background: ${pallete.red.R75};
-        color: ${pallete.dark.D500};
+        background: ${pallete.red.R100};
         svg {
           transform: scale(1.2);
           filter: invert(100%);
           box-shadow: 1px 1px 5px rgba(255, 255, 255, 0.1);
           border-radius: 100%;
-          width: ;
+          opacity: 1;
+        }
+      }
+      &.active {
+        background: ${pallete.dark.D200};
+        &:hover {
+          background: ${pallete.dark.D500};
+          color: ${pallete.white};
         }
       }
     }
@@ -92,4 +117,47 @@ export const ModalFooter = styled.div`
   width: auto;
   display: flex;
   justify-content: space-between;
+`;
+
+export const ModalBoxContainer = styled.div`
+  width: auto;
+  height: 170px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+`;
+
+export const ModalBox = styled.div`
+  width: 30%;
+  background: ${pallete.dark.D50};
+  border-radius: 10px;
+  cursor: pointer;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding: 0px 10px;
+  transition: all 0.4s ease;
+  svg {
+    height: 30px;
+    margin-bottom: 10px;
+  }
+  h5 {
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+  p {
+    letter-spacing: 0.04em !important;
+    font-size: 13px !important;
+    width: 86%;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  &:hover {
+    background: ${pallete.dark.D65};
+  }
 `;

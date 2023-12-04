@@ -1,7 +1,7 @@
 import { LeftSection } from "../BestOfTheWeek/styles";
 import NewsCard from "../../../../components/NewsCard/NewsCard";
 import { CategoriesContainer, CategoryButton } from "./styles";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { DEFAULT_CATEGORIES } from "../../../../helpers/constants";
 import { NewsListLoader } from "../../../../components/LoadingCard/LoadingCard";
 import useUserPreferences from "../../../../context/UserPreferences/UseUserPreferences";
@@ -13,10 +13,14 @@ import {
 } from "../../../../api/defaultConfigs";
 import Error from "../../../../components/Error/Error";
 import Button from "../../../../components/Button/Button";
+import { formatDate } from "../../../../helpers/functions";
 
-function NewsList() {
+function NewsList({ personalize }: { personalize: () => void }) {
   const [activeCategory, setActiveCategory] = useState("all");
   const [articlesCount, setArticlesCount] = useState(10);
+  const [dateStart, setDateStart] = useState(new Date());
+  const [fetchedStoriesFromYesterday, setFetchedStoriesFromYesterday] =
+    useState(false);
 
   //Get preferences from global context
   const { mySources, myCategories } = useUserPreferences();
@@ -28,10 +32,11 @@ function NewsList() {
     {
       ...eventRegistryConfig,
       articlesCount,
-      keyword: activeCategory === "all" ? null : activeCategory,
+      keyword: activeCategory === "all" ? myCategories || null : activeCategory,
       //User's preffered sources or get all allowed sources
-      sourceUri: mySources || null,
+      sourceUri: mySources ? Array.from(mySources, (item) => item.uri) : null,
       ignoreSourceUri: ignoreSourceUri,
+      dateStart: formatDate(dateStart, true),
     }
   );
 
@@ -41,14 +46,28 @@ function NewsList() {
   //Extract articles from response
   const stories = data?.data?.articles?.results || [];
 
+  useEffect(() => {
+    //Get stories from yesterday if attmepting to get for today returns no data
+    if (
+      data?.data?.articles?.results?.length === 0 &&
+      !fetchedStoriesFromYesterday
+    ) {
+      setDateStart(new Date(new Date().setDate(new Date().getDate() - 1)));
+      setFetchedStoriesFromYesterday(true);
+    }
+  }, [data, fetchedStoriesFromYesterday]);
+
   const PAGE_TITLE = myCategories
     ? `Your personalized news feed`
     : `Latest stories for you.`;
+
   return (
     <LeftSection>
       <h2 style={{ fontSize: "30px", marginTop: 0 }}>
         {PAGE_TITLE}
-        <Button variant="filled">Personalize Feed</Button>
+        <Button variant="filled" onClick={personalize}>
+          Personalize Feed
+        </Button>
       </h2>
       <CategoriesContainer>
         <CategoryButton

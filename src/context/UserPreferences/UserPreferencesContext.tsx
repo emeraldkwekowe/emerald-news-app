@@ -1,5 +1,7 @@
 import { createContext, useState } from "react";
 import {
+  SourcesObjectType,
+  UpdatePreferencesFnTypes,
   UserPreferencesContextType,
   UserPreferencesProviderType,
 } from "./types";
@@ -15,14 +17,11 @@ export const UserPreferencesContext = createContext<UserPreferencesContextType>(
 
 const UserPreferencesProvider = ({ children }: UserPreferencesProviderType) => {
   const [myAuthors, setMyAuthors] = useState<string[] | null>(null);
-  const [mySources, setMySources] = useState<string[] | null>(null);
+  const [mySources, setMySources] = useState<SourcesObjectType[] | null>(null);
   const [myCategories, setMyCategories] = useState<string[] | null>(null);
 
   //Reusable function that receives the preference type and value and updates it globally
-  const updatePreferences = (
-    type: "authors" | "sources" | "categories",
-    value: string[] | null
-  ) => {
+  const updatePreferences = (type: UpdatePreferencesFnTypes, value: any) => {
     switch (type) {
       case "authors":
         setMyAuthors(value);

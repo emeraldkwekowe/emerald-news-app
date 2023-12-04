@@ -60,7 +60,7 @@ describe("NewsBanner Component test", () => {
     const { date, title, body, url, image, categories } = mockData;
     render(
       <NewsBanner
-        status="success"
+        loading={false}
         date={formatDate(date)}
         title={title}
         body={body}

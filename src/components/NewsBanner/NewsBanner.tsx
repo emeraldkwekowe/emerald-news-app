@@ -15,7 +15,7 @@ interface Props {
   categories?: { label?: string }[];
   body?: string;
   newsDesk?: string;
-  status: "idle" | "success" | "loading" | "error";
+  loading: boolean;
   position: "1" | "2" | "3";
 }
 
@@ -29,20 +29,20 @@ function NewsBanner(props: Props) {
     image,
     categories,
     body,
-    status,
+    loading,
     position,
     newsDesk,
   } = props;
   return (
     <>
-      {status === "loading" && position === "1" && <LoadingCard />}
-      {status === "loading" && position === "2" && (
+      {loading && position === "1" && <LoadingCard />}
+      {loading && position === "2" && (
         <LoadingCard height={380} mb={25} delay="delay3" />
       )}
-      {status === "loading" && position === "3" && (
+      {loading && position === "3" && (
         <LoadingCard height={380} delay="delay4" />
       )}
-      {status === "success" && (
+      {title && (
         <NewsBannerContainer
           href={url}
           target="_blank"

@@ -6,23 +6,28 @@ import { MainContentContainer } from "./styles";
 import LatestInYourCountry from "./components/LatestInYourCountry/LatestInYourCountry";
 import Authors from "./components/Authors/Authors";
 import Personalize from "./components/Personalize/Personalize";
+import { useState } from "react";
 
 function Home() {
+  const [showPersonalizeInterface, setShowPersonalizeInterface] =
+    useState(false);
   return (
     <main>
-      <Header />
+      <Header personalize={() => setShowPersonalizeInterface(true)} />
       {/*Data sourced from NewYorkTimes API*/}
       <BestOfTheWeek />
       <MainContentContainer>
         {/*Data sourced from newsapi.api - eventregistry*/}
-        <NewsList />
+        <NewsList personalize={() => setShowPersonalizeInterface(true)} />
         <RightSection>
           {/* Data sourced from newsapi.org */}
           <LatestInYourCountry />
           <Authors />
         </RightSection>
       </MainContentContainer>
-      <Personalize />
+      {showPersonalizeInterface && (
+        <Personalize close={() => setShowPersonalizeInterface(false)} />
+      )}
     </main>
   );
 }
