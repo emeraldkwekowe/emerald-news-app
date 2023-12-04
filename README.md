@@ -1,26 +1,25 @@
 # Getting started
 
-This project uses `yarn` package manager. 
-In the project directory, run:
+This project uses `yarn` package manager. In the project directory, run:
 
-### `yarn install` or (not-preferred) `npm install`
+```bash
+yarn install
+```
 
 To install all packages and dependencies
 
-
-
-### `yarn start` or `npm start`
+```bash
+yarn start
+```
 
 Runs the app in the development mode.
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-
-
-### `yarn test` or `npm test`
+```bash
+yarn test
+```
 
 Launches the test runner in the interactive watch mode.
-
-
 
 # Running Project in a Docker Container
 
