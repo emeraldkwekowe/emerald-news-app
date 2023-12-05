@@ -47,7 +47,7 @@ function NewsList({ personalize }: { personalize: () => void }) {
   );
 
   //Define the categories array from the user's preferences or default categories (if no preferences are set)
-  const categories = myCategories || DEFAULT_CATEGORIES;
+  const categories = myCategories || DEFAULT_CATEGORIES.default;
 
   //Extract articles from response
   const articlesResponse = data?.data?.articles;

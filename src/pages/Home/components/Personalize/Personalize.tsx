@@ -25,11 +25,15 @@ function Personalize({
   const { updatePreferences } = useUserPreferences();
   const [page, setPage] = useState(0);
 
+  const returnToFeed = () => {
+    close();
+    scrollToFeed();
+  };
+
   const clearPreferences = () => {
     updatePreferences("clear", null);
     toast.success("Successfully cleared all personalization.");
-    close();
-    scrollToFeed();
+    returnToFeed();
   };
   return (
     <PersonalizationContainer>
@@ -76,9 +80,24 @@ function Personalize({
             </Button>
           </>
         )}
-        {page === 1 && <PersonalizeCategories back={() => setPage(0)} />}
-        {page === 2 && <PersonalizeSources back={() => setPage(0)} />}
-        {page === 3 && <PersonalizeAuthors back={() => setPage(0)} />}
+        {page === 1 && (
+          <PersonalizeCategories
+            back={() => setPage(0)}
+            returnToFeed={returnToFeed}
+          />
+        )}
+        {page === 2 && (
+          <PersonalizeSources
+            back={() => setPage(0)}
+            returnToFeed={returnToFeed}
+          />
+        )}
+        {page === 3 && (
+          <PersonalizeAuthors
+            back={() => setPage(0)}
+            returnToFeed={returnToFeed}
+          />
+        )}
       </div>
     </PersonalizationContainer>
   );

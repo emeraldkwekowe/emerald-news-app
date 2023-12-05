@@ -7,40 +7,57 @@ import { ReactComponent as CloseIcon } from "../../../../../Assets/close.svg";
 import { useState } from "react";
 import { toast } from "react-toastify";
 import { SourcesObjectType } from "../../../../../context/UserPreferences/types";
+import SearchForm from "./SearchForm";
 
-function PersonalizeSources({ back }: { back: () => void }) {
+function PersonalizeSources({
+  back,
+  returnToFeed,
+}: {
+  back: () => void;
+  returnToFeed: () => void;
+}) {
   const { mySources, updatePreferences } = useUserPreferences();
 
   //Get preffered Sources from user preferences or use top authors if no preferences set
-  const SOURCES = mySources || DEFAULT_SOURCES;
+  const SOURCES = mySources || DEFAULT_SOURCES.default;
 
   const [selectedSources, setSelectedSources] =
     useState<SourcesObjectType[]>(SOURCES);
-  const [isDisabled, setIsDisabled] = useState(true);
 
-  const removeCategory = (category: SourcesObjectType) => {
+  const modifySources = (source: SourcesObjectType) => {
     const array = new Array(...selectedSources);
-    const index = array.indexOf(category);
-    if (index !== -1) {
+    const index = array.indexOf(source);
+    //If item is not present in array
+    if (index === -1) {
+      //add item
+      array.push(source);
+    } else {
+      //remove item
       array.splice(index, 1);
-      setSelectedSources(array);
-      setIsDisabled(false);
     }
+    setSelectedSources(array);
   };
 
   const Submit = () => {
     updatePreferences("sources", selectedSources);
     toast.success("Sources updated successfully!");
+    returnToFeed();
   };
 
   return (
     <>
       <h3>What sources do you want news from?</h3>
       <p>
-        Select up to 60 news sources for your news feed. The top sources have
+        Select up to 15 news sources for your news feed. The top sources have
         already been added for you.
       </p>
       {/* <SearchForm /> */}
+
+      <SearchForm
+        title="sources"
+        currentList={Array.from(selectedSources, (item) => item.title)}
+        addToListFn={(source) => modifySources(source)}
+      />
 
       <h4>Selected Sources</h4>
 
@@ -50,7 +67,7 @@ function PersonalizeSources({ back }: { back: () => void }) {
             <CategoryButton
               key={category?.uri}
               className="item__a"
-              onClick={() => removeCategory(category)}
+              onClick={() => modifySources(category)}
             >
               {category?.title}
               <CloseIcon />
@@ -59,18 +76,12 @@ function PersonalizeSources({ back }: { back: () => void }) {
         ) : (
           <p>Use all sources (default when no sources are selected)</p>
         )}
-        <CategoryButton className="item__a active">+ Add source</CategoryButton>
       </CategoriesContainer>
       <ModalFooter>
         <Button className="delay1" onClick={back}>
           Go back
         </Button>
-        <Button
-          disabled={isDisabled}
-          className="delay1"
-          variant="filled"
-          onClick={Submit}
-        >
+        <Button className="delay1" variant="filled" onClick={Submit}>
           Submit
         </Button>
       </ModalFooter>

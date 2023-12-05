@@ -75,12 +75,4 @@ describe("NewsCard Component test", () => {
     RenderComponent("all");
     expect(screen.getByTestId("newscard-div")).toBeTruthy();
   });
-  it("should display the last category in the array if all is passed", () => {
-    RenderComponent("all");
-    expect(screen.findByText("Science")).toBeTruthy();
-  });
-  it("should display the last passed in category", () => {
-    RenderComponent("Health");
-    expect(screen.findByText(/Health/)).toBeTruthy();
-  });
 });

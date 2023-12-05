@@ -77,6 +77,10 @@ function Search() {
     }
   };
 
+  const clearFilter = (filter: StateNames) => {
+    setFilters({ ...filters, [filter]: [] });
+  };
+
   //Reusable stop loading function to ensure DRY
   const stopLoading = () => {
     setLoading(false);
@@ -118,7 +122,10 @@ function Search() {
       <Header
         isFilled
         isSearch
-        searchFn={(value: string) => UpdateFilter("categories", value)}
+        searchFn={(value: string) => {
+          clearFilter("categories");
+          UpdateFilter("categories", value);
+        }}
       />
       <MainContentContainer>
         <FilterPane>
@@ -155,8 +162,8 @@ function Search() {
                 />
                 All categories
               </label>
-              {DEFAULT_CATEGORIES?.length ? (
-                DEFAULT_CATEGORIES?.map((category) => (
+              {DEFAULT_CATEGORIES?.default?.length ? (
+                DEFAULT_CATEGORIES?.default?.map((category) => (
                   <label key={category}>
                     <input
                       onChange={() => UpdateFilter("categories", category)}
@@ -184,8 +191,8 @@ function Search() {
                 All sources
               </label>
 
-              {DEFAULT_SOURCES?.length ? (
-                DEFAULT_SOURCES?.map((source) => (
+              {DEFAULT_SOURCES?.default?.length ? (
+                DEFAULT_SOURCES?.default?.map((source) => (
                   <label key={source?.title}>
                     <input
                       onChange={() => UpdateFilter("sources", source?.uri)}
@@ -209,7 +216,6 @@ function Search() {
           ) : stories?.length ? (
             stories?.map((story: Story) => (
               <NewsCard
-                activeCategory={filters?.categories?.length ? "/" : ""}
                 key={story?.uri}
                 {...{
                   ...story,

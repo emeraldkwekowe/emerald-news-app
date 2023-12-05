@@ -34,7 +34,8 @@ function Header({ personalize, isFilled, isSearch, searchFn }: Props) {
       ) : (
         <form onSubmit={SubmitSearch}>
           <input
-            placeholder="Find an author"
+            placeholder="Search for news articles e.g Donald Trump"
+            autoFocus
             onChange={(e) => setSearchValue(e.target.value)}
           />
           <Button variant="filled">Search</Button>

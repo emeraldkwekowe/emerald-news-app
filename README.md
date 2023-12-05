@@ -25,6 +25,7 @@ This guide will walk you through the process of containerizing and running this 
 ## Prerequisites
 
 - [Docker](https://docs.docker.com/get-docker/) installed on your machine.
+- NodeJS >= 16.0.0
 
 ## Step 1: Clone the Project
 
@@ -47,7 +48,7 @@ docker build -t emerald-news-app .
 After building the image, you can run the Docker container using the following command:
 
 ```bash
-docker run -it --rm -p 3001:3000 emerald-news-app
+docker run -it --rm -p 3001:3000 emerald-news-app:latest
 ```
 
 This command maps port 3001 on your host machine to port 3000 on the Docker container. Please configure your host machine port as needed to ensure the port is forwarded correctly.

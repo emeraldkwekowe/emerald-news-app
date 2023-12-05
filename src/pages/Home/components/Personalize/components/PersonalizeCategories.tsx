@@ -8,36 +8,52 @@ import SearchForm from "./SearchForm";
 import { useState } from "react";
 import { toast } from "react-toastify";
 
-function PersonalizeCategories({ back }: { back: () => void }) {
+function PersonalizeCategories({
+  back,
+  returnToFeed,
+}: {
+  back: () => void;
+  returnToFeed: () => void;
+}) {
   const { myCategories, updatePreferences } = useUserPreferences();
 
   //Get preffered categories from user preferences or use top authors if no preferences set
-  const CATEGORIES = myCategories || DEFAULT_CATEGORIES;
+  const CATEGORIES = myCategories || DEFAULT_CATEGORIES.default;
 
   const [selectedCategories, setSelectedCategories] = useState(CATEGORIES);
 
-  const removeCategory = (category: string) => {
+  const modifyCategories = (category: string) => {
     const array = new Array(...selectedCategories);
     const index = array.indexOf(category);
-    if (index !== -1) {
+    //If item is not present in array
+    if (index === -1) {
+      //add item
+      array.push(category);
+    } else {
+      //remove item
       array.splice(index, 1);
-      setSelectedCategories(array);
     }
+    setSelectedCategories(array);
   };
 
   const Submit = () => {
     updatePreferences("categories", selectedCategories);
     toast.success("Categories updated successfully!");
+    returnToFeed();
   };
 
   return (
     <>
       <h3>What categories are you interested in?</h3>
       <p>
-        Select up to 60 categories for your news feed. The top categories have
+        Select up to 15 categories for your news feed. The top categories have
         already been added for you.
       </p>
-      <SearchForm />
+      <SearchForm
+        title="categories"
+        currentList={selectedCategories}
+        addToListFn={(category) => modifyCategories(category)}
+      />
 
       <h4>Selected Categories</h4>
 
@@ -47,7 +63,7 @@ function PersonalizeCategories({ back }: { back: () => void }) {
             <CategoryButton
               key={category}
               className="item__a"
-              onClick={() => removeCategory(category)}
+              onClick={() => modifyCategories(category)}
             >
               {category}
               <CloseIcon />
@@ -62,7 +78,7 @@ function PersonalizeCategories({ back }: { back: () => void }) {
           Go back
         </Button>
         <Button
-          disabled={selectedCategories.length < 2}
+          disabled={selectedCategories.length < 1}
           className="delay1"
           variant="filled"
           onClick={Submit}

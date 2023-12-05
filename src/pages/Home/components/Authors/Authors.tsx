@@ -24,8 +24,8 @@ function Authors() {
   //Get preferences from global context
   const { myAuthors } = useUserPreferences();
 
-  //Get preffered authors from user preferences or use top authors if no preferences set
-  const selectedAuthors = myAuthors || TOP_AUTHORS;
+  //Get preffered authors from user preferences or use top 5 authors if no preferences set
+  const selectedAuthors = myAuthors || TOP_AUTHORS.default;
 
   //Reusable stop loading function to ensure DRY
   const stopLoading = () => {
@@ -62,16 +62,18 @@ function Authors() {
       {loading && <NewsListLoader size="small" />}
       {error && <Error />}
       {stories?.length
-        ? stories.map((story: Story) => (
-            <NewsCardSmall
-              key={story?.title}
-              {...{
-                ...story,
-                source: story?.authors[0]?.name,
-                date: formatDate(story?.date),
-              }}
-            />
-          ))
+        ? stories.map((story: Story) =>
+            story ? (
+              <NewsCardSmall
+                key={story?.title}
+                {...{
+                  ...story,
+                  source: story?.authors[0]?.name,
+                  date: formatDate(story?.date),
+                }}
+              />
+            ) : null
+          )
         : null}
     </AsideContainer>
   );

@@ -1,21 +1,20 @@
 import { memo } from "react";
 import { NewsCardContainer } from "./styles";
-import { getPrimaryCategory, reduceTextSize } from "../../helpers/functions";
+import { reduceTextSize } from "../../helpers/functions";
 
 interface Props {
   title: string;
   image: string;
   date: string;
   url: string;
-  categories: { label?: string }[];
+  categories?: { label?: string }[];
   body: string;
   source: { uri: string };
   activeCategory?: string;
 }
 
 function NewsCard(props: Props) {
-  const { title, body, image, categories, url, date, source, activeCategory } =
-    props;
+  const { title, body, image, url, date, source } = props;
 
   return (
     <NewsCardContainer
@@ -33,10 +32,7 @@ function NewsCard(props: Props) {
 
       <div className="text">
         <h4>
-          {activeCategory === "all" || !activeCategory
-            ? getPrimaryCategory(categories)
-            : activeCategory}{" "}
-          - <b> {source?.uri}</b>
+          <b> {source?.uri}</b>
           <span>{date}</span>
         </h4>
         <h3>{title}</h3>

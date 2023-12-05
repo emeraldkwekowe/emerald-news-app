@@ -20,7 +20,7 @@ export const PersonalizationContainer = styled.div`
   }
   .main {
     width: 97%;
-    max-width: 750px;
+    max-width: 700px;
     height: auto;
     position: absolute;
     background: ${pallete.white};
@@ -92,6 +92,11 @@ export const PersonalizationContainer = styled.div`
   }
 `;
 
+export const ModalFormContainer = styled.div`
+  height: auto;
+  width: auto;
+`;
+
 export const ModalForm = styled.div`
   width: auto;
   height: auto;
@@ -110,6 +115,38 @@ export const ModalForm = styled.div`
   button {
     right: 0;
     position: absolute;
+  }
+`;
+
+export const ModalFormResults = styled.div`
+  height: auto;
+  width: auto;
+  max-height: 200px;
+  overflow: auto;
+  display: flex;
+  flex-wrap: wrap;
+`;
+
+export const SuggestedItem = styled.div`
+  display: flex;
+  justify-content: space-between;
+  background: ${pallete.dark.D50}99;
+  padding: 1px 20px;
+  align-items: center;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  p {
+    font-weight: 600;
+    text-transform: capitalize;
+  }
+  button {
+    font-size: 13px;
+    padding: 2px 13px !important;
+    height: 26px;
+    font-weight: 600;
+    border-width: 1px;
+    margin-left: 10px;
   }
 `;
 

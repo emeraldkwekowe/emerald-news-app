@@ -1,6 +1,6 @@
 export const API_KEYS = {
   newsApiOrg: "e81d210578d4409ba8655bc006993f23",
-  newsApiApi: "f666f88f-0880-4f4d-a2a8-2835de3dc9ba",
+  newsApiApi: "79f6e740-7b1e-45c8-92d5-b71926ae1fba",
   nytStories: "0pFA0hcdrFJmKWxuG8yA8EIHGGXkCKpg",
 };
 //Theme pallete
@@ -29,144 +29,137 @@ export const pallete = {
   },
 };
 
-export const DEFAULT_CATEGORIES = [
-  "entertainment",
-  "sports",
-  "media",
-  "health",
-  "lifestyle",
-  "business",
-  //OTHERS
-  "opinion",
-  "politics",
-  "science",
-  "travel",
-  "arts",
-  "fashion",
-  "food",
-];
+export const DEFAULT_CATEGORIES = {
+  default: [
+    "entertainment",
+    "sports",
+    "media",
+    "health",
+    "lifestyle",
+    "business",
+    "opinion",
+    "politics",
+    "science",
+    "travel",
+    "arts",
+    "fashion",
+    "food",
+  ],
+  others: ["architecture", "agriculture", "games", "home", "shopping"],
+};
 
-export const TOP_AUTHORS = [
-  "caroline_horne@thelincolnianonline.com",
-  "ann_coulter@breitbart.com",
-  "calvert_county_government@thebaynet.com",
-  "helix_consulting_llc@panorama.am",
-  "lily_waddell@aol.co.uk",
-];
+export const TOP_AUTHORS = {
+  default: [
+    //Top authors
+    "caroline_horne@thelincolnianonline.com",
+    "ann_coulter@breitbart.com",
+    "calvert_county_government@thebaynet.com",
+    "helix_consulting_llc@panorama.am",
+    "lily_waddell@aol.co.uk",
+  ],
+  others: [
+    //Others
+    "hema_sharma@e24bollywood.com",
+    "caroline_williamson@design-milk.com",
+    "adrial_akbar@news.detik.com",
+    "kiran_mahanavar@esakal.com",
+    "aktiencheck_de_ag@aktiencheck.de",
+    "veronika_bondarenko@kansas.com",
+    "kellis_robinett@kansas.com",
+    "juan_cano@diariosur.es",
+    "manesh_samtani@regulationasia.com",
+    "sandra_halliday@si.fashionnetwork.com",
+    "john_breunig@greenwichtime.com",
+    "rafael_moreira@omunicipio.com.br",
+    "m_faisal_hanapi@makassar.antaranews.com",
+    "associated_press@greenfieldreporter.com",
+    "reuters@theprint.in",
+  ],
+};
 
-export const DEFAULT_SOURCES = [
-  {
-    title: "BuzzFeed",
-    uri: "buzzfeed.com",
-  },
-  {
-    uri: "edition.cnn.com",
-    title: "CNN International",
-  },
-  {
-    uri: "cnn.com",
-    title: "CNN News",
-  },
-  {
-    uri: "foxnews.com",
-    title: "Fox News",
-  },
-  {
-    uri: "washingtonpost.com",
-    title: "Washington Post",
-  },
-  {
-    uri: "bbc.com",
-    title: "BBC News",
-  },
-  {
-    uri: "news.yahoo.com",
-    title: "Yahoo News",
-  },
-  {
-    uri: "wsj.com",
-    title: "The Wall Street Journal",
-  },
-  {
-    uri: "cnbc.com",
-    title: "CNBC",
-  },
-  {
-    uri: "theguardian.com",
-    title: "The Guardian",
-  },
-  {
-    uri: "nypost.com",
-    title: "New York Post",
-  },
-  {
-    uri: "reuters.com",
-    title: "Reuters",
-  },
-  {
-    title: "Arizona Sports",
-    uri: "arizonasports.com",
-  },
-  {
-    title: "TradingView",
-    uri: "tradingview.com",
-  },
-];
-
-export const TOP_AUTHORS2 = [
-  //TODO: remove this
-  // {
-  //   uri: "caroline_horne@thelincolnianonline.com",
-  //   name: "Caroline Horne",
-  // },
-  // {
-  //   uri: "gero_berndt@derwesten.de",
-  //   name: "Gero Berndt",
-  // },
-  // {
-  //   uri: "calvert_county_government@thebaynet.com",
-  //   name: "Calvert County Government",
-  // },
-  // {
-  //   uri: "helix_consulting_llc@panorama.am",
-  //   name: "Helix Consulting Llc",
-  // },
-  // { uri: "patrick_tchanhoun@goal.com", name: "Patrick Tchanhoun" },
-  // {
-  //   uri: "lily_waddell@aol.co.uk",
-  //   name: "Lily Waddell",
-  // },
-  // {
-  //   uri: "caroline_williamson@design-milk.com",
-  //   name: "Caroline Williamson",
-  // },
-  // {
-  //   uri: "adrial_akbar@news.detik.com",
-  //   name: "Adrial Akbar",
-  // },
-  // {
-  //   uri: "kiran_mahanavar@esakal.com",
-  //   name: "Kiran Mahanavar",
-  // },
-  // {
-  //   uri: "aktiencheck_de_ag@aktiencheck.de",
-  //   name: "Aktiencheck.De Ag",
-  // },
-  // {
-  //   uri: "http@aktiencheck.de",
-  //   name: "Aktiencheck.De",
-  // },
-  //TOP AUTHORS
-  // {
-  //   uri: "richard_quest@edition.cnn.com",
-  //   name: "Richard Quest",
-  // },
-  // {
-  //   uri: "christiane_amanpour@edition.cnn.com",
-  //   name: "Christiane Amanpour",
-  // },
-  // {
-  //   uri: "ann_coulter@breitbart.com",
-  //   name: "Ann Coulter",
-  // },
-];
+export const DEFAULT_SOURCES = {
+  default: [
+    {
+      title: "BuzzFeed",
+      uri: "buzzfeed.com",
+    },
+    {
+      uri: "edition.cnn.com",
+      title: "CNN International",
+    },
+    {
+      uri: "cnn.com",
+      title: "CNN News",
+    },
+    {
+      uri: "foxnews.com",
+      title: "Fox News",
+    },
+    {
+      uri: "washingtonpost.com",
+      title: "Washington Post",
+    },
+    {
+      uri: "bbc.com",
+      title: "BBC News",
+    },
+    {
+      uri: "news.yahoo.com",
+      title: "Yahoo News",
+    },
+    {
+      uri: "wsj.com",
+      title: "The Wall Street Journal",
+    },
+    {
+      uri: "cnbc.com",
+      title: "CNBC",
+    },
+    {
+      uri: "theguardian.com",
+      title: "The Guardian",
+    },
+    {
+      uri: "nypost.com",
+      title: "New York Post",
+    },
+    {
+      uri: "reuters.com",
+      title: "Reuters",
+    },
+    {
+      title: "Arizona Sports",
+      uri: "arizonasports.com",
+    },
+    {
+      title: "TradingView",
+      uri: "tradingview.com",
+    },
+  ],
+  others: [
+    {
+      uri: "sc.stock.cnfol.com",
+      title: "China Finance Online",
+    },
+    {
+      uri: "usatoday.com",
+      title: "USA Today",
+    },
+    {
+      uri: "kark.com",
+      title: "KARK",
+    },
+    {
+      uri: "163.com",
+      title: "163.com",
+    },
+    {
+      uri: "hjnews.com",
+      title: "The Herald Journal",
+    },
+    {
+      uri: "urbanacitizen.com",
+      title: "Urbana Daily Citizen",
+    },
+  ],
+};
