@@ -28,13 +28,16 @@ function Header({ personalize, isFilled, isSearch, searchFn }: Props) {
       </Link>
 
       {!isSearch ? (
-        <p className="animated fadeInUp delay1" style={{ marginRight: "auto" }}>
+        <p
+          className="animated fadeInUp delay1 ___hidden_on_responsive"
+          style={{ marginRight: "auto" }}
+        >
           Articles, news and updates from your favorite sources.
         </p>
       ) : (
         <form onSubmit={SubmitSearch}>
           <input
-            placeholder="Search for news articles e.g Donald Trump"
+            placeholder="e.g Donald Trump"
             autoFocus
             onChange={(e) => setSearchValue(e.target.value)}
           />
@@ -50,7 +53,7 @@ function Header({ personalize, isFilled, isSearch, searchFn }: Props) {
             </Button>
           </Link>
         ) : (
-          <Link to="/">
+          <Link to="/" className="___hidden_on_responsive">
             <Button variant="filled" className="delay2 icon">
               <HomeIcon />
             </Button>

@@ -10,13 +10,13 @@ export const NewsBannerContainer = styled.a`
   display: flex;
   justify-content: space-between;
   position: relative;
-  background-size: 100% auto;
+  background-size: 1100px auto;
   background-color: ${pallete.blue.B50};
   background-position: center;
   transition: all 0.6s ease;
 
   &:hover {
-    background-size: 120% auto;
+    background-size: 1200px auto;
     h2 {
       span {
         text-decoration: underline;
@@ -77,7 +77,7 @@ export const NewsBannerContainer = styled.a`
     margin: 30px;
   }
   &.small {
-    height: 310px;
+    height: 300px;
     margin-bottom: 47px;
     background-size: auto 100%;
     flex-direction: column;
@@ -120,6 +120,18 @@ export const NewsBannerContainer = styled.a`
       display: none;
     }
   }
+  @media (max-width: 750px) {
+    flex-direction: column;
+    height: 400px;
+    h2 {
+      width: 100%;
+      font-size: 27px;
+    }
+    button {
+      top: 0;
+      bottom: unset;
+    }
+  }
 `;
 
 export const BodyText = styled.div`
@@ -131,4 +143,7 @@ export const BodyText = styled.div`
   text-shadow: 0px 1px 0px ${pallete.dark.D500};
   width: 70%;
   color: ${pallete.white};
+  @media (max-width: 750px) {
+    display: none !important;
+  }
 `;

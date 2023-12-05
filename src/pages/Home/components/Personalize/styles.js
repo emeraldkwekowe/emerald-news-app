@@ -18,74 +18,82 @@ export const PersonalizationContainer = styled.div`
     left: 0;
     background: ${pallete.dark.D500}dd;
   }
-  .main {
-    width: 97%;
-    max-width: 700px;
-    height: auto;
+  .main_container {
     position: absolute;
-    background: ${pallete.white};
-    z-index: 9;
-    left: 0;
-    right: 0;
-    margin: 0 auto;
-    padding: 30px 40px 30px;
-    border-radius: 10px;
-    svg.close {
-      position: absolute;
+    width: 100%;
+    overflow: auto;
+    height: 100%;
+    padding-top: 40px;
+    .main_content {
+      width: 97%;
+      max-width: 700px;
+      height: auto;
+      background: ${pallete.white};
+      position: relative;
+      z-index: 9;
+      left: 0;
       right: 0;
-      top: 0;
-      margin: 20px;
-      cursor: pointer;
-      opacity: 0.8;
-      &:hover {
-        opacity: 1;
-        transform: scale(1.1);
-      }
-    }
-
-    h3 {
-      letter-spacing: -0.02em;
-      font-size: 25px;
-      margin-bottom: 0px;
-      margin-top: 0px;
-    }
-    h4 {
-      letter-spacing: -0.02em;
-      font-size: 12px;
-      margin-top: 30px;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-      color: ${pallete.dark.D100};
-      border-bottom: 1px solid ${pallete.dark.D50};
-      padding-bottom: 10px;
-    }
-    p {
-      letter-spacing: -0.01em;
-      font-size: 15px;
-      margin-top: 10px;
-    }
-    .item__a {
-      svg {
-        margin-left: 10px;
-        width: 15px;
-        height: 15px;
-        opacity: 0.5;
-      }
-      &:hover {
-        background: ${pallete.red.R100};
-        svg {
-          transform: scale(1.2);
-          filter: invert(100%);
-          box-shadow: 1px 1px 5px rgba(255, 255, 255, 0.1);
-          border-radius: 100%;
+      margin: 100px auto;
+      padding: 30px 40px 30px;
+      border-radius: 10px;
+      box-sizing: border-box;
+      svg.close {
+        position: absolute;
+        right: 0;
+        top: 0;
+        margin: 20px;
+        cursor: pointer;
+        opacity: 0.8;
+        &:hover {
           opacity: 1;
+          transform: scale(1.1);
         }
       }
-      &.active {
-        background: ${pallete.dark.D200};
+
+      h3 {
+        letter-spacing: -0.02em;
+        font-size: 25px;
+        margin-bottom: 0px;
+        margin-top: 0px;
+      }
+      h4 {
+        letter-spacing: -0.02em;
+        font-size: 12px;
+        margin-top: 30px;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        color: ${pallete.dark.D100};
+        border-bottom: 1px solid ${pallete.dark.D50};
+        padding-bottom: 10px;
+      }
+      p {
+        letter-spacing: -0.01em;
+        font-size: 15px;
+        margin-top: 10px;
+      }
+      .item__a {
+        svg {
+          margin-left: 10px;
+          width: 15px;
+          height: 15px;
+          opacity: 0.5;
+        }
         &:hover {
-          background: ${pallete.dark.D500};
-          color: ${pallete.white};
+          background: ${pallete.red.R100};
+          svg {
+            transform: scale(1.2);
+            filter: invert(100%);
+            box-shadow: 1px 1px 5px rgba(255, 255, 255, 0.1);
+            border-radius: 100%;
+            opacity: 1;
+          }
+        }
+        &.active {
+          background: ${pallete.dark.D200};
+          &:hover {
+            background: ${pallete.dark.D500};
+            color: ${pallete.white};
+          }
         }
       }
     }
@@ -158,14 +166,20 @@ export const ModalFooter = styled.div`
 
 export const ModalBoxContainer = styled.div`
   width: auto;
-  height: 170px;
+  height: auto;
+  min-height: 170px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
   margin-top: 30px;
+  flex-wrap: wrap;
+  gap: 10px;
 `;
 
 export const ModalBox = styled.div`
-  width: 30%;
+  flex-grow: 1;
+  min-width: 150px;
+  width: 21%;
   background: ${pallete.dark.D50};
   border-radius: 10px;
   cursor: pointer;
@@ -175,7 +189,11 @@ export const ModalBox = styled.div`
   display: flex;
   flex-direction: column;
   padding: 0px 10px;
+  height: 160px;
   transition: all 0.4s ease;
+  &:last-of-type {
+    margin-right: 0;
+  }
   svg {
     height: 30px;
     margin-bottom: 10px;

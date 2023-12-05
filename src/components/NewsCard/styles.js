@@ -25,9 +25,10 @@ export const NewsCardContainer = styled.a`
     background-size: cover;
     background-position: center;
     overflow: hidden;
-    max-height: 350px;
+    max-height: 390px;
     img {
-      width: 100%;
+      height: 100%;
+      margin-left: -50%;
     }
   }
   .text {
@@ -82,6 +83,37 @@ export const NewsCardContainer = styled.a`
       letter-spacing: -0.02em;
       font-size: 17px;
       line-height: 23px;
+    }
+  }
+  @media (max-width: 1200px) {
+    padding: 0px;
+    .image {
+      margin: 20px;
+    }
+    .text {
+      padding: 5px 20px 5px 5px;
+    }
+    .text {
+      h3 {
+        font-size: 20px;
+        line-height: 25px;
+      }
+    }
+  }
+  @media (max-width: 700px) {
+    flex-direction: column;
+    padding: 0px 20px;
+    justify-content: center;
+    align-items: center;
+    .image {
+      width: 100%;
+      img {
+        width: 100%;
+        margin: 0;
+      }
+    }
+    .text {
+      width: 100%;
     }
   }
 `;

@@ -16,7 +16,7 @@ import Button from "../../../../components/Button/Button";
 import { formatDate } from "../../../../helpers/functions";
 import { Story } from "../../../Search/types";
 
-function NewsList({ personalize }: { personalize: () => void }) {
+function NewsList() {
   const [activeCategory, setActiveCategory] = useState("all");
   const [dateStart, setDateStart] = useState(new Date());
   const [fetchedStoriesFromYesterday, setFetchedStoriesFromYesterday] =
@@ -65,18 +65,14 @@ function NewsList({ personalize }: { personalize: () => void }) {
     }
   }, [data, fetchedStoriesFromYesterday]);
 
+  //Custom page title based on personalization status
   const PAGE_TITLE = myCategories
     ? `Your personalized news feed`
     : `Latest stories for you.`;
 
   return (
     <LeftSection>
-      <h2 style={{ fontSize: "30px", marginTop: 0 }}>
-        {PAGE_TITLE}
-        <Button variant="filled" onClick={personalize}>
-          Personalize Feed
-        </Button>
-      </h2>
+      <h2 style={{ fontSize: "30px", marginTop: 0 }}>{PAGE_TITLE}</h2>
       <CategoriesContainer>
         <CategoryButton
           onClick={() => setActiveCategory("all")}

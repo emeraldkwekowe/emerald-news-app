@@ -12,6 +12,8 @@ export const ElementContainer = styled.aside`
   background: ${pallete.white};
   border-radius: 10px;
   padding: 20px;
+  box-sizing: border-box;
+  width: 100%;
   .flex {
     display: flex;
     justify-content: space-between;
@@ -24,7 +26,8 @@ export const ElementContainer = styled.aside`
     text-transform: uppercase;
     border-bottom: 1px solid ${pallete.dark.D50};
     font-weight: 700;
-    padding-bottom: 10px;
+    padding-bottom: 7px;
+    margin-bottom: 8px;
   }
 `;
 
@@ -32,7 +35,6 @@ export const FormDiv = styled.div`
   width: auto;
   height: auto;
   flex-grow: 1;
-  flex-basis: 0;
   padding-top: 10px;
   max-height: 200px;
   overflow: auto;
@@ -58,5 +60,6 @@ export const FormDiv = styled.div`
     height: 17px;
     width: 17px;
     margin-right: 10px;
+    margin-left: 0px;
   }
 `;

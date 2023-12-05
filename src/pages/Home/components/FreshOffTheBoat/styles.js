@@ -10,6 +10,11 @@ export const MainContentContainer = styled.div`
   @media (max-width: 1100px) {
     flex-direction: column;
   }
+  @media (max-width: 750px) {
+    h1 {
+      display: none;
+    }
+  }
 `;
 
 export const LeftSection = styled.div`

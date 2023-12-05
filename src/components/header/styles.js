@@ -2,13 +2,14 @@ import styled from "styled-components";
 import { pallete } from "../../helpers/constants";
 
 export const HeaderContainer = styled.header`
-  height: 100px;
+  height: auto;
   display: flex;
   justify-content: space-between;
   padding: 25px 30px;
+  flex-wrap: wrap;
   &.filled {
     background: ${pallete.white}77;
-    height: 50px;
+    height: auto;
     box-shadow: 0px 0.7px 3px rgba(0, 0, 0, 0.05);
   }
   a {
@@ -22,7 +23,9 @@ export const HeaderContainer = styled.header`
     letter-spacing: -0.01rem;
   }
   form {
-    width: 60%;
+    width: 100%;
+    max-width: 800px;
+    min-width: 300px;
     height: 50px;
     display: flex;
     position: relative;
@@ -42,6 +45,12 @@ export const HeaderContainer = styled.header`
       font-weight: 700;
     }
   }
+
+  @media (max-width: 1100px) {
+    .___hidden_on_responsive {
+      display: none;
+    }
+  }
 `;
 
 export const Logo = styled.span`
@@ -51,4 +60,6 @@ export const Logo = styled.span`
   font-size: 30px;
   letter-spacing: -0.07rem;
   text-decoration: none;
+  display: block;
+  margin-bottom: 10px;
 `;

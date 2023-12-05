@@ -150,67 +150,70 @@ function Search() {
               </FormDiv>
             </div>
 
-            {/*Filter by category*/}
-            <h3>Filter by category</h3>
-            <FormDiv style={{ margin: "0px 0px 20px" }}>
-              <label>
-                <input
-                  type="checkbox"
-                  value="all"
-                  checked={!filters?.categories?.length}
-                  onChange={() => UpdateFilter("categories", "all")}
-                />
-                All categories
-              </label>
-              {DEFAULT_CATEGORIES?.default?.length ? (
-                DEFAULT_CATEGORIES?.default?.map((category) => (
-                  <label key={category}>
-                    <input
-                      onChange={() => UpdateFilter("categories", category)}
-                      type="checkbox"
-                      checked={filters?.categories?.includes(category)}
-                    />
-                    {category}
-                  </label>
-                ))
-              ) : (
-                <p>No category found</p>
-              )}
-            </FormDiv>
+            <div className="flex" style={{ flexWrap: "wrap" }}>
+              {/*Filter by category*/}
+              <FormDiv style={{ margin: "0px 30px 20px 0px", minWidth: 300 }}>
+                <h3>Filter by category</h3>
 
-            {/*Filter by source*/}
-            <h3>Filter by source</h3>
-            <FormDiv style={{ marginTop: 10 }}>
-              <label>
-                <input
-                  type="checkbox"
-                  value="all"
-                  checked={!filters?.sources?.length}
-                  onChange={() => UpdateFilter("sources", "all")}
-                />
-                All sources
-              </label>
+                <label>
+                  <input
+                    type="checkbox"
+                    value="all"
+                    checked={!filters?.categories?.length}
+                    onChange={() => UpdateFilter("categories", "all")}
+                  />
+                  All categories
+                </label>
+                {DEFAULT_CATEGORIES?.default?.length ? (
+                  DEFAULT_CATEGORIES?.default?.map((category) => (
+                    <label key={category}>
+                      <input
+                        onChange={() => UpdateFilter("categories", category)}
+                        type="checkbox"
+                        checked={filters?.categories?.includes(category)}
+                      />
+                      {category}
+                    </label>
+                  ))
+                ) : (
+                  <p>No category found</p>
+                )}
+              </FormDiv>
 
-              {DEFAULT_SOURCES?.default?.length ? (
-                DEFAULT_SOURCES?.default?.map((source) => (
-                  <label key={source?.title}>
-                    <input
-                      onChange={() => UpdateFilter("sources", source?.uri)}
-                      type="checkbox"
-                      checked={filters?.sources?.includes(source?.uri)}
-                    />
-                    {source?.title}
-                  </label>
-                ))
-              ) : (
-                <p>No sources found</p>
-              )}
-            </FormDiv>
+              {/*Filter by source*/}
+              <FormDiv>
+                <h3>Filter by source</h3>
+                <label>
+                  <input
+                    type="checkbox"
+                    value="all"
+                    checked={!filters?.sources?.length}
+                    onChange={() => UpdateFilter("sources", "all")}
+                  />
+                  All sources
+                </label>
+
+                {DEFAULT_SOURCES?.default?.length ? (
+                  DEFAULT_SOURCES?.default?.map((source) => (
+                    <label key={source?.title}>
+                      <input
+                        onChange={() => UpdateFilter("sources", source?.uri)}
+                        type="checkbox"
+                        checked={filters?.sources?.includes(source?.uri)}
+                      />
+                      {source?.title}
+                    </label>
+                  ))
+                ) : (
+                  <p>No sources found</p>
+                )}
+              </FormDiv>
+            </div>
           </ElementContainer>
         </FilterPane>
         <NewsPane>
           <h2 style={{ fontSize: "30px", marginTop: 0 }}>Search results</h2>
-          {error && !stories && <Error />}{" "}
+          {error && !stories && <Error />}
           {loading ? (
             <NewsListLoader />
           ) : stories?.length ? (

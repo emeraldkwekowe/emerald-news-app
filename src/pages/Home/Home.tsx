@@ -20,14 +20,26 @@ function Home() {
       block: "start",
     });
   };
+
+  //Open and close modal functions
+  const openPersonalizeModal = () => {
+    document.body.style.overflow = "hidden";
+    setShowPersonalizeInterface(true);
+  };
+
+  const closePersonalizeModal = () => {
+    document.body.style.overflow = "auto";
+    setShowPersonalizeInterface(false);
+  };
+
   return (
     <main>
-      <Header personalize={() => setShowPersonalizeInterface(true)} />
+      <Header personalize={openPersonalizeModal} />
       {/*Data sourced from New York Times API*/}
       <FreshOffTheBoat />
       <MainContentContainer ref={userFeedRef}>
         {/*Data sourced from Newsapi.api - eventregistry*/}
-        <NewsList personalize={() => setShowPersonalizeInterface(true)} />
+        <NewsList />
         <RightSection>
           {/* Data sourced from newsapi.org */}
           <LatestInYourCountry />
@@ -36,7 +48,7 @@ function Home() {
       </MainContentContainer>
       {showPersonalizeInterface && (
         <Personalize
-          close={() => setShowPersonalizeInterface(false)}
+          close={closePersonalizeModal}
           scrollToFeed={scrollToFeed}
         />
       )}
