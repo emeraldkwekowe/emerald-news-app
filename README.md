@@ -1,6 +1,8 @@
 # Getting started
 
-This project uses `yarn` package manager. In the project directory, run:
+This project uses `yarn` package manager and NodeJS >= 16.10.0.
+
+In the project directory, run:
 
 ```bash
 yarn install
@@ -25,7 +27,7 @@ This guide will walk you through the process of containerizing and running this 
 ## Prerequisites
 
 - [Docker](https://docs.docker.com/get-docker/) installed on your machine.
-- NodeJS >= 16.0.0
+- NodeJS >= 16.10.0 (Application was bootstrapped with latest version of node js)
 
 ## Step 1: Clone the Project
 
