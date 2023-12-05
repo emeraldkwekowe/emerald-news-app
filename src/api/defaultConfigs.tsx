@@ -1,5 +1,5 @@
 import { API_KEYS } from "../helpers/constants";
-import { formatDate } from "../helpers/functions";
+import { formatDate } from "../helpers/functions/functions";
 
 //Default api config for eventregistry api (newsapi.api)
 export const eventRegistryConfig = {

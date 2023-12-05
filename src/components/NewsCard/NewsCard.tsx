@@ -1,6 +1,6 @@
 import { memo } from "react";
 import { NewsCardContainer } from "./styles";
-import { reduceTextSize } from "../../helpers/functions";
+import { reduceTextSize } from "../../helpers/functions/functions";
 
 interface Props {
   title: string;

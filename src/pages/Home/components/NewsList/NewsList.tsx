@@ -13,7 +13,7 @@ import {
 } from "../../../../api/defaultConfigs";
 import Error from "../../../../components/Error/Error";
 import Button from "../../../../components/Button/Button";
-import { formatDate } from "../../../../helpers/functions";
+import { formatDate } from "../../../../helpers/functions/functions";
 import { Story } from "../../../Search/types";
 
 function NewsList() {

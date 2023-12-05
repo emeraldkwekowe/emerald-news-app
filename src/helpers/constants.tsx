@@ -1,6 +1,6 @@
 export const API_KEYS = {
   newsApiOrg: "e81d210578d4409ba8655bc006993f23",
-  newsApiApi: "514fb11e-d2b5-48f6-8c66-c9f5fc05748e",
+  newsApiApi: "12b6de88-fdb4-4438-ab8a-db6e0f625d65",
   nytStories: "0pFA0hcdrFJmKWxuG8yA8EIHGGXkCKpg",
 };
 //Theme pallete

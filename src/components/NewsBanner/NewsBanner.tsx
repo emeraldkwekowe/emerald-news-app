@@ -2,7 +2,7 @@ import { memo } from "react";
 import { BodyText, NewsBannerContainer } from "./styles";
 import Button from "../Button/Button";
 import { ReactComponent as ArrowRight } from "../../Assets/Icon-feather-arrow-up-right.svg";
-import { reduceTextSize } from "../../helpers/functions";
+import { reduceTextSize } from "../../helpers/functions/functions";
 import LoadingCard from "../LoadingCard/LoadingCard";
 
 interface Props {

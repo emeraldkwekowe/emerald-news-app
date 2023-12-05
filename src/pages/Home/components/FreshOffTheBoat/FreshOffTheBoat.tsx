@@ -5,7 +5,7 @@ import { LeftSection, RightSection, MainContentContainer } from "./styles";
 import useUserPreferences from "../../../../context/UserPreferences/UseUserPreferences";
 import { API_KEYS } from "../../../../helpers/constants";
 import Error from "../../../../components/Error/Error";
-import { formatDate } from "../../../../helpers/functions";
+import { formatDate } from "../../../../helpers/functions/functions";
 import { useEffect, useState } from "react";
 
 interface Story {

@@ -7,7 +7,7 @@ import { endpoints } from "../../../../api/endpoints";
 import useUserPreferences from "../../../../context/UserPreferences/UseUserPreferences";
 import { TOP_AUTHORS } from "../../../../helpers/constants";
 import { NewsCardSmall } from "../../../../components/NewsCard/NewsCard";
-import { formatDate } from "../../../../helpers/functions";
+import { formatDate } from "../../../../helpers/functions/functions";
 
 interface Story {
   title: string;

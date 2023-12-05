@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import NewsBanner from "./NewsBanner";
-import { formatDate } from "../../helpers/functions";
+import { formatDate } from "../../helpers/functions/functions";
 
 describe("NewsBanner Component test", () => {
   const mockData = {

@@ -13,7 +13,7 @@ import { CategoryFilter, Story, StateNames } from "./types";
 import { NewsListLoader } from "../../components/LoadingCard/LoadingCard";
 import Error from "../../components/Error/Error";
 import NewsCard from "../../components/NewsCard/NewsCard";
-import { omitNullishFields } from "../../helpers/functions";
+import { omitNullishFields } from "../../helpers/functions/functions";
 import Button from "../../components/Button/Button";
 import Header from "../components/Header/Header";
 

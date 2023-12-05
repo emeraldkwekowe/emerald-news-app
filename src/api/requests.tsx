@@ -1,6 +1,6 @@
 import { useQuery } from "react-query";
 import axios from "./axiosInstance";
-import { formatDate, omitNullishFields } from "../helpers/functions";
+import { formatDate, omitNullishFields } from "../helpers/functions/functions";
 import { eventRegistryConfig } from "./defaultConfigs";
 
 //Fetcher function
