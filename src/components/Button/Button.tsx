@@ -20,9 +20,8 @@ function Button({
   style,
 }: ButtonTypes) {
   return (
-    //TODO: write this better
-    //TODO: test this
     <ButtonContainer
+      data-testid="button-component"
       disabled={disabled}
       onClick={onClick}
       style={style}

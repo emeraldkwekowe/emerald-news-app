@@ -21,8 +21,10 @@ function Header({ personalize, isFilled, isSearch, searchFn }: Props) {
     } else return;
   };
   return (
-    //TODO: test this
-    <HeaderContainer className={isFilled ? "filled" : ""}>
+    <HeaderContainer
+      data-testid="header-component"
+      className={isFilled ? "filled" : ""}
+    >
       <Link to="/">
         <Logo>News hub.</Logo>
       </Link>

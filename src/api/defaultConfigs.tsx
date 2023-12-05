@@ -17,7 +17,7 @@ export const eventRegistryConfig = {
   forceMaxDataTimeWindow: 31,
   includeArticleConcepts: true,
   includeArticleCategories: true,
-  //TODO: we still have a repetion problem despite this
+  //TODO: we still have a repetion problem despite this, try a fix.
   isDuplicateFilter: "skipDuplicates",
 };
 

@@ -66,7 +66,6 @@ describe("NewsBanner Component test", () => {
         body={body}
         url={url}
         image={image}
-        categories={categories}
         position="1"
       />
     );
@@ -74,9 +73,5 @@ describe("NewsBanner Component test", () => {
   it("should render the news banner component", () => {
     RenderComponent();
     expect(screen.getByTestId("newsbanner-div")).toBeTruthy();
-  });
-  it("should display the last category in the array", () => {
-    RenderComponent();
-    expect(screen.findByText("Science")).toBeTruthy();
   });
 });

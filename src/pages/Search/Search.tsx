@@ -34,7 +34,7 @@ function Search() {
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(null);
 
-  //Function to ... TODO: DESCRIBE THIS
+  //Function to prepare filters for API
   const ArrayModifyFn = (
     stateArray: string[],
     stateName: StateNames,

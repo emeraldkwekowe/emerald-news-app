@@ -2,7 +2,7 @@ import { memo } from "react";
 import { BodyText, NewsBannerContainer } from "./styles";
 import Button from "../Button/Button";
 import { ReactComponent as ArrowRight } from "../../Assets/Icon-feather-arrow-up-right.svg";
-import { getPrimaryCategory, reduceTextSize } from "../../helpers/functions";
+import { reduceTextSize } from "../../helpers/functions";
 import LoadingCard from "../LoadingCard/LoadingCard";
 
 interface Props {
@@ -12,7 +12,6 @@ interface Props {
   title: string;
   url: string;
   image: string;
-  categories?: { label?: string }[];
   body?: string;
   newsDesk?: string;
   loading: boolean;
@@ -27,7 +26,6 @@ function NewsBanner(props: Props) {
     title,
     url,
     image,
-    categories,
     body,
     loading,
     position,
@@ -59,9 +57,7 @@ function NewsBanner(props: Props) {
         >
           <div>
             <span>{date}</span>
-            <span className="outline">
-              {categories ? getPrimaryCategory(categories) : newsDesk}
-            </span>
+            <span className="outline">{newsDesk}</span>
           </div>
           <h2>
             <span>

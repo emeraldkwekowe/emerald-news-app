@@ -1,14 +1,3 @@
-//TODO: test this
-export const getPrimaryCategory = (categories: { label?: string }[]) => {
-  if (categories?.length) {
-    const categoriesArr =
-      categories[categories?.length - 1]?.label?.split("/") || "";
-    return categoriesArr[categoriesArr?.length - 1];
-  } else {
-    return null;
-  }
-};
-
 //Function to remove nullish fields for the newsapi.api endpoint
 export const omitNullishFields = (object: { [key: string]: any }) => {
   Object.keys(object).forEach((key) => {
