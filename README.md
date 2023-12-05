@@ -27,7 +27,6 @@ This guide will walk you through the process of containerizing and running this 
 ## Prerequisites
 
 - [Docker](https://docs.docker.com/get-docker/) installed on your machine.
-- NodeJS >= 18.0.0 (Application was bootstrapped with latest version of Node js)
 
 ## Step 1: Clone the Project
 
