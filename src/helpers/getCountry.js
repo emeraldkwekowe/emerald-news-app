@@ -2862,7 +2862,7 @@ export function getCountry(type = "shortname") {
     return null;
   }
 
-  const _country = timezones[timezone].c[0];
+  const _country = timezones[timezone]?.c ? timezones[timezone]?.c[0] : "DE";
   const country = countries[_country];
   if (type === "name") {
     return country;

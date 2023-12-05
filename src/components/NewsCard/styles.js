@@ -22,13 +22,19 @@ export const NewsCardContainer = styled.a`
   .image {
     width: 40%;
     margin: 30px 0px 30px 30px;
-    background-size: cover;
-    background-position: center;
     overflow: hidden;
     max-height: 390px;
+    position: relative;
     img {
+      width: 100%;
+    }
+    div {
+      width: 100%;
       height: 100%;
-      margin-left: -50%;
+      background-size: cover;
+      background-position: center;
+      position: absolute;
+      top: 0;
     }
   }
   .text {

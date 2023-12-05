@@ -28,6 +28,7 @@ function NewsCard(props: Props) {
     >
       <div className="image">
         <img src={image} alt={title} />
+        <div style={{ backgroundImage: `url(${image})` }}></div>
       </div>
 
       <div className="text">

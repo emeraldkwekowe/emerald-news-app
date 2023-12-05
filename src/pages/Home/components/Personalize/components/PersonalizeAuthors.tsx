@@ -8,6 +8,10 @@ import { toast } from "react-toastify";
 import { useState } from "react";
 import SearchForm from "./SearchForm";
 
+//Function to get author's name from uri
+export const getAuthorName = (uri: string) =>
+  uri.split("@")[0].replaceAll("_", " ");
+
 function PersonalizeAuthors({
   back,
   returnToFeed,
@@ -16,9 +20,6 @@ function PersonalizeAuthors({
   returnToFeed: () => void;
 }) {
   const { myAuthors, updatePreferences } = useUserPreferences();
-
-  //Function to get author's name from uri
-  const getAuthorName = (uri: string) => uri.split("@")[0].replaceAll("_", " ");
 
   //Get preffered authors from user preferences or use top authors if no preferences set
   const AUTHORS = myAuthors || TOP_AUTHORS.default;
@@ -49,8 +50,8 @@ function PersonalizeAuthors({
     <>
       <h3>What authors are you interested in?</h3>
       <p>
-        Select up to 10 authors to see on the landing page. The top 5 authors
-        have already been added for you.
+        Select 3 - 5 authors to see on the landing page. The top 5 authors have
+        already been added for you.
       </p>
       <SearchForm
         title="authors"
@@ -82,7 +83,7 @@ function PersonalizeAuthors({
         <Button
           className="delay1"
           variant="filled"
-          disabled={selectedAuthors.length < 3}
+          disabled={selectedAuthors.length < 3 || selectedAuthors.length > 5}
           onClick={Submit}
         >
           Submit

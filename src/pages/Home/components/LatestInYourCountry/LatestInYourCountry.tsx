@@ -20,30 +20,34 @@ function LatestInYourCountry() {
 
   const stories = data?.data?.articles || [];
 
+  const COUNTRY_NAME = getCountry("name");
+
   return (
     <AsideContainer>
-      <h2>Latest in {getCountry("name")}</h2>
+      <h2>Latest in {COUNTRY_NAME}</h2>
       {error && !data && <Error />}
       {status === "loading" && <NewsListLoader size="small" />}
-      {stories?.length
-        ? stories.map(
-            (story: {
-              title: string;
-              author: string;
-              publishedAt: string;
-              url: string;
-            }) => (
-              <NewsCardSmall
-                key={story?.title}
-                {...{
-                  ...story,
-                  source: story?.author,
-                  date: formatDate(story?.publishedAt),
-                }}
-              />
-            )
+      {stories?.length ? (
+        stories.map(
+          (story: {
+            title: string;
+            author: string;
+            publishedAt: string;
+            url: string;
+          }) => (
+            <NewsCardSmall
+              key={story?.title}
+              {...{
+                ...story,
+                source: story?.author,
+                date: formatDate(story?.publishedAt),
+              }}
+            />
           )
-        : null}
+        )
+      ) : (
+        <p>No articles in {COUNTRY_NAME} at this time</p>
+      )}
     </AsideContainer>
   );
 }

@@ -60,7 +60,7 @@ function Personalize({
                 >
                   <SourcesIcon />
                   <h5>Sources</h5>
-                  <p>Customize sources (Cnn, FoxNews e.t.c)</p>
+                  <p>Customize sources (CNN, FoxNews e.t.c)</p>
                 </ModalBox>
                 <ModalBox
                   className="animated fadeInUp delay3"

@@ -12,6 +12,7 @@ import {
   DEFAULT_SOURCES,
   TOP_AUTHORS,
 } from "../../../../../helpers/constants";
+import { getAuthorName } from "./PersonalizeAuthors";
 
 interface Props {
   title: "categories" | "authors" | "sources";
@@ -80,7 +81,9 @@ function SearchForm(props: Props) {
           const itemValue = item?.title || item;
           return (
             <SuggestedItem key={itemValue}>
-              <p>{itemValue}</p>
+              <p>
+                {title === "authors" ? getAuthorName(itemValue) : itemValue}
+              </p>
               {currentList?.includes(itemValue) ? (
                 <Button onClick={() => addToListFn(item)}>Remove</Button>
               ) : (

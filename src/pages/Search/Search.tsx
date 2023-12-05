@@ -38,7 +38,8 @@ function Search() {
   const ArrayModifyFn = (
     stateArray: string[],
     stateName: StateNames,
-    value: string
+    value: string,
+    clear = false
   ) => {
     if (value === "all") {
       setFilters({ ...filters, categories: [] });
@@ -51,14 +52,21 @@ function Search() {
       } else {
         newArr.splice(valueIndex, 1);
       }
-      setFilters({
-        ...filters,
-        [stateName]: newArr,
-      });
+      if (clear) {
+        setFilters({
+          ...filters,
+          [stateName]: [value],
+        });
+      } else {
+        setFilters({
+          ...filters,
+          [stateName]: newArr,
+        });
+      }
     }
   };
 
-  const UpdateFilter = (filter: StateNames, value: string) => {
+  const UpdateFilter = (filter: StateNames, value: string, clear = false) => {
     switch (filter) {
       case "dateStart":
         setFilters({ ...filters, dateStart: value });
@@ -67,7 +75,7 @@ function Search() {
         setFilters({ ...filters, dateEnd: value });
         break;
       case "categories":
-        ArrayModifyFn(filters?.categories, "categories", value);
+        ArrayModifyFn(filters?.categories, "categories", value, clear);
         break;
       case "sources":
         ArrayModifyFn(filters?.sources, "sources", value);
@@ -75,10 +83,6 @@ function Search() {
       default:
         break;
     }
-  };
-
-  const clearFilter = (filter: StateNames) => {
-    setFilters({ ...filters, [filter]: [] });
   };
 
   //Reusable stop loading function to ensure DRY
@@ -116,15 +120,13 @@ function Search() {
 
     getData();
   }, [filters, page]);
-
   return (
     <SearchContainer>
       <Header
         isFilled
         isSearch
         searchFn={(value: string) => {
-          clearFilter("categories");
-          UpdateFilter("categories", value);
+          UpdateFilter("categories", value.trim(), true);
         }}
       />
       <MainContentContainer>
