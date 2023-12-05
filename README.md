@@ -1,6 +1,6 @@
 # Getting started
 
-This project uses `yarn` package manager and NodeJS >= 16.10.0.
+This project uses `yarn` package manager and `NodeJS >= 18.0.0` [Manage NodeJS versions with nvm](https://github.com/nvm-sh/nvm#intro)
 
 In the project directory, run:
 
@@ -27,7 +27,7 @@ This guide will walk you through the process of containerizing and running this 
 ## Prerequisites
 
 - [Docker](https://docs.docker.com/get-docker/) installed on your machine.
-- NodeJS >= 16.10.0 (Application was bootstrapped with latest version of node js)
+- NodeJS >= 18.0.0 (Application was bootstrapped with latest version of Node js)
 
 ## Step 1: Clone the Project
 
