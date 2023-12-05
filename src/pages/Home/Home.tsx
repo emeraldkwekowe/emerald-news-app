@@ -1,4 +1,3 @@
-import Header from "../../components/Header/Header";
 import NewsList from "./components/NewsList/NewsList";
 import { RightSection } from "./components/FreshOffTheBoat/styles";
 import { MainContentContainer } from "./styles";
@@ -7,6 +6,7 @@ import Authors from "./components/Authors/Authors";
 import Personalize from "./components/Personalize/Personalize";
 import { useRef, useState } from "react";
 import FreshOffTheBoat from "./components/FreshOffTheBoat/FreshOffTheBoat";
+import Header from "../components/Header/Header";
 
 function Home() {
   const [showPersonalizeInterface, setShowPersonalizeInterface] =

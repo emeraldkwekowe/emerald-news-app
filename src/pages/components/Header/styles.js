@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { pallete } from "../../helpers/constants";
+import { pallete } from "../../../helpers/constants";
 
 export const HeaderContainer = styled.header`
   height: auto;

@@ -1,5 +1,4 @@
 import { ElementContainer, FormDiv, SearchContainer } from "./styles";
-import Header from "../../components/Header/Header";
 import { MainContentContainer } from "../Home/styles";
 import {
   LeftSection as NewsPane,
@@ -16,6 +15,7 @@ import Error from "../../components/Error/Error";
 import NewsCard from "../../components/NewsCard/NewsCard";
 import { omitNullishFields } from "../../helpers/functions";
 import Button from "../../components/Button/Button";
+import Header from "../components/Header/Header";
 
 function Search() {
   const [filters, setFilters] = useState<CategoryFilter>({

@@ -1,9 +1,9 @@
-import Button from "../Button/Button";
 import { HeaderContainer, Logo } from "./styles";
-import { ReactComponent as SearchIcon } from "../../Assets/Icon-feather-search.svg";
-import { ReactComponent as HomeIcon } from "../../Assets/Icon-metro-home.svg";
+import { ReactComponent as SearchIcon } from "../../../Assets/Icon-feather-search.svg";
+import { ReactComponent as HomeIcon } from "../../../Assets/Icon-metro-home.svg";
 import { memo, useState } from "react";
 import { Link } from "react-router-dom";
+import Button from "../../../components/Button/Button";
 
 interface Props {
   personalize?: () => void;
