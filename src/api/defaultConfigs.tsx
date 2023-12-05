@@ -38,4 +38,5 @@ export const ignoreSourceUri = [
   "freerepublic.com",
   "idea.int",
   "orchidboard.com",
+  "wacotrib.com",
 ];

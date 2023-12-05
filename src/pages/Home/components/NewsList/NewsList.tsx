@@ -18,10 +18,12 @@ import { Story } from "../../../Search/types";
 
 function NewsList({ personalize }: { personalize: () => void }) {
   const [activeCategory, setActiveCategory] = useState("all");
-  const [articlesCount, setArticlesCount] = useState(10);
   const [dateStart, setDateStart] = useState(new Date());
   const [fetchedStoriesFromYesterday, setFetchedStoriesFromYesterday] =
     useState(false);
+
+  //Pagination
+  const [page, setPage] = useState(1);
 
   //Get preferences from global context
   const { mySources, myCategories } = useUserPreferences();
@@ -32,13 +34,15 @@ function NewsList({ personalize }: { personalize: () => void }) {
     endpoints?.getNewsArticles,
     {
       ...eventRegistryConfig,
-      articlesCount,
+      articlesCount: 10,
+      //Using the keyword filter against the categoryUri filter as this ensures more robust results (this is common practice accross popular news platform)
       keyword: activeCategory === "all" ? myCategories || null : activeCategory,
       keywordOper: "or",
       //User's preffered sources or get all allowed sources
       sourceUri: mySources ? Array.from(mySources, (item) => item.uri) : null,
       ignoreSourceUri: ignoreSourceUri,
       dateStart: formatDate(dateStart, true),
+      articlesPage: page,
     }
   );
 
@@ -46,7 +50,9 @@ function NewsList({ personalize }: { personalize: () => void }) {
   const categories = myCategories || DEFAULT_CATEGORIES;
 
   //Extract articles from response
-  const stories = data?.data?.articles?.results || [];
+  const articlesResponse = data?.data?.articles;
+  const stories = articlesResponse?.results || [];
+  const totalPages = articlesResponse?.totalResults || 0;
 
   useEffect(() => {
     //Get stories from yesterday if attempting to get for today returns no data
@@ -99,9 +105,18 @@ function NewsList({ personalize }: { personalize: () => void }) {
       ))}
 
       {stories?.length ? (
-        <Button onClick={() => setArticlesCount(articlesCount + 15)}>
-          Load more articles
-        </Button>
+        <div style={{ display: "flex", justifyContent: "space-between" }}>
+          <Button disabled={page === 1} onClick={() => setPage(page - 1)}>
+            Previous page
+          </Button>
+          <Button
+            disabled={page === totalPages}
+            variant="filled"
+            onClick={() => setPage(page + 1)}
+          >
+            Next page
+          </Button>
+        </div>
       ) : null}
     </LeftSection>
   );

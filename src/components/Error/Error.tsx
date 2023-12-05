@@ -14,9 +14,9 @@ function Error() {
       />
       <h4 className="animated fadeInUp delay3">Something is wrong..</h4>
       <p className="animated fadeInUp delay3">
-        You should be seeing news, not this error message. I believe you have
-        done nothing to deserve this error, hence I shamefully ask that you
-        please refresh.
+        You should be seeing news, not this error message, I apologize. You most
+        likely made more requests to the API than they could handle. Kindly wait
+        a few seconds, then refresh this page. Thank you!
       </p>
       <Button
         className="animated fadeInUp delay4 red"

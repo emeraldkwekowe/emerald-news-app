@@ -15,6 +15,7 @@ import { NewsListLoader } from "../../components/LoadingCard/LoadingCard";
 import Error from "../../components/Error/Error";
 import NewsCard from "../../components/NewsCard/NewsCard";
 import { omitNullishFields } from "../../helpers/functions";
+import Button from "../../components/Button/Button";
 
 function Search() {
   const [filters, setFilters] = useState<CategoryFilter>({
@@ -28,6 +29,10 @@ function Search() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | boolean>(false);
   const [stories, setStories] = useState<Story[] | null>(null);
+
+  //Pagination
+  const [page, setPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(null);
 
   //Function to ... TODO: DESCRIBE THIS
   const ArrayModifyFn = (
@@ -88,11 +93,14 @@ function Search() {
             ...eventRegistryConfig,
             dateStart,
             dateEnd,
+            //Using the keyword filter against the categoryUri filter as this ensures more robust results (this is common practice accross popular news platform)
             keyword: categories?.length ? categories : null,
             sourceUri: sources?.length ? sources : null,
+            articlesPage: page,
             ignoreSourceUri,
           })
         );
+        setTotalPages(results?.data?.articles?.pages);
         setStories(results?.data?.articles?.results || []);
         setError(false);
         stopLoading();
@@ -103,7 +111,7 @@ function Search() {
     };
 
     getData();
-  }, [filters]);
+  }, [filters, page]);
 
   return (
     <SearchContainer>
@@ -201,6 +209,7 @@ function Search() {
           ) : stories?.length ? (
             stories?.map((story: Story) => (
               <NewsCard
+                activeCategory={filters?.categories?.length ? "/" : ""}
                 key={story?.uri}
                 {...{
                   ...story,
@@ -211,6 +220,20 @@ function Search() {
           ) : (
             <p>No stories found</p>
           )}
+          {stories?.length ? (
+            <div style={{ display: "flex", justifyContent: "space-between" }}>
+              <Button disabled={page === 1} onClick={() => setPage(page - 1)}>
+                Previous page
+              </Button>
+              <Button
+                disabled={page === totalPages}
+                variant="filled"
+                onClick={() => setPage(page + 1)}
+              >
+                Next page
+              </Button>
+            </div>
+          ) : null}
         </NewsPane>
       </MainContentContainer>
     </SearchContainer>

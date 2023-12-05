@@ -24,11 +24,11 @@ function Header({ personalize, isFilled, isSearch, searchFn }: Props) {
     //TODO: test this
     <HeaderContainer className={isFilled ? "filled" : ""}>
       <Link to="/">
-        <Logo className="logo animated fadeIn">News hub.</Logo>
+        <Logo>News hub.</Logo>
       </Link>
 
       {!isSearch ? (
-        <p className="animated fadeInUp delay2" style={{ marginRight: "auto" }}>
+        <p className="animated fadeInUp delay1" style={{ marginRight: "auto" }}>
           Articles, news and updates from your favorite sources.
         </p>
       ) : (

@@ -6,20 +6,17 @@ This project uses `yarn` package manager. In the project directory, run:
 yarn install
 ```
 
-To install all packages and dependencies
+To install all packages and dependencies. To run the app in development mode, run:
 
 ```bash
 yarn start
 ```
 
-Runs the app in the development mode.
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser. To launch the test runner in interactive watch mode, run:
 
 ```bash
 yarn test
 ```
-
-Launches the test runner in the interactive watch mode.
 
 # Running Project in a Docker Container
 

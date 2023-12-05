@@ -62,7 +62,12 @@ export const ButtonContainer = styled.button`
     transition: all 0.4s ease;
   }
   &:disabled {
-    background: ${pallete.dark.D75};
+    background: ${pallete.dark.D50};
     cursor: not-allowed;
+    border: unset !important;
+    color: ${pallete.dark.D75};
+    &:hover {
+      color: ${pallete.dark.D75};
+    }
   }
 `;
