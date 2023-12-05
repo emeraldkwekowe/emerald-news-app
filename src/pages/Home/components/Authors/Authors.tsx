@@ -60,7 +60,7 @@ function Authors() {
     <AsideContainer>
       <h2 style={{ marginBottom: 20 }}>{PAGE_TITLE}</h2>
       {loading && <NewsListLoader size="small" />}
-      {error && <Error />}
+      {error && !stories && <Error />}
       {stories?.length
         ? stories.map((story: Story) =>
             story ? (
