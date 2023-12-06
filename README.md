@@ -1,5 +1,7 @@
 # Getting started
 
+This project has been deployed [here](https://ephemeral-palmier-e9c595.netlify.app) to aid testing.
+
 This project uses `yarn` package manager and `NodeJS >= 18.0.0` [Manage NodeJS versions with nvm](https://github.com/nvm-sh/nvm#intro)
 
 In the project directory, run:
