@@ -96,7 +96,7 @@ function Search() {
       const { dateStart, dateEnd, categories, sources } = filters;
       try {
         const results = await post(
-          endpoints?.getNewsArticles,
+          endpoints.getNewsArticles,
           omitNullishFields({
             ...eventRegistryConfig,
             dateStart,

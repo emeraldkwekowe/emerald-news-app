@@ -1,4 +1,3 @@
-import { API_KEYS } from "../helpers/constants";
 import { formatDate } from "../helpers/functions/functions";
 
 //Default api config for eventregistry api (newsapi.api)
@@ -13,7 +12,7 @@ export const eventRegistryConfig = {
   articlesArticleBodyLen: -1,
   resultType: "articles",
   dataType: ["news", "pr", "blog"],
-  apiKey: API_KEYS.newsApiApi,
+  apiKey: process.env.REACT_APP_NEWS_API_AI_KEY,
   forceMaxDataTimeWindow: 31,
   includeArticleConcepts: true,
   includeArticleCategories: true,

@@ -3,7 +3,6 @@ import { get } from "../../../../api/requests";
 import NewsBanner from "../../../../components/NewsBanner/NewsBanner";
 import { LeftSection, RightSection, MainContentContainer } from "./styles";
 import useUserPreferences from "../../../../context/UserPreferences/UseUserPreferences";
-import { API_KEYS } from "../../../../helpers/constants";
 import Error from "../../../../components/Error/Error";
 import { formatDate } from "../../../../helpers/functions/functions";
 import { useEffect, useState } from "react";
@@ -35,13 +34,7 @@ function FreshOffTheBoat() {
   useEffect(() => {
     const getData = async () => {
       try {
-        const results = await get(
-          endpoints?.nytStories +
-            `?api-key=${API_KEYS?.nytStories}&begin_date=${formatDate(
-              new Date(new Date(new Date().setDate(new Date().getDate() - 1))),
-              true
-            )}&sort=newest&fq=news_desk:("Sports", "Foreign", "Politics", "Business", "Technology")            `
-        );
+        const results = await get(endpoints.nytStories());
         const docs = results?.data?.response?.docs;
         setStories(
           docs.filter((item: { multimedia: {}[] }) => item?.multimedia?.length)

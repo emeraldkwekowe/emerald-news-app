@@ -14,6 +14,11 @@ RUN yarn install
 # Copy the application code to the container
 COPY . .
 
+# Set environment variables
+ENV REACT_APP_NEWS_API_ORG_KEY=
+ENV REACT_APP_NEWS_API_AI_KEY=
+ENV REACT_APP_NEWS_NYT_STORIES_KEY=
+
 # Expose app port
 EXPOSE 3000
 

@@ -31,7 +31,7 @@ function NewsList() {
   //Get news data from event registry api (newsapi.ai) using the react-query api
   const { status, data, error } = usePostData(
     "allStories__Eventregistry",
-    endpoints?.getNewsArticles,
+    endpoints.getNewsArticles,
     {
       ...eventRegistryConfig,
       articlesCount: 10,

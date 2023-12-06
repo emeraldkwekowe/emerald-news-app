@@ -3,7 +3,6 @@ import { useGetData } from "../../../../api/requests";
 import Error from "../../../../components/Error/Error";
 import { NewsListLoader } from "../../../../components/LoadingCard/LoadingCard";
 import { NewsCardSmall } from "../../../../components/NewsCard/NewsCard";
-import { API_KEYS } from "../../../../helpers/constants";
 import { formatDate } from "../../../../helpers/functions/functions";
 import { getCountry } from "../../../../helpers/getCountry";
 import { AsideContainer } from "./styles";
@@ -12,10 +11,7 @@ function LatestInYourCountry() {
   //Get data for the top 3 stories of the day
   const { status, data, error } = useGetData(
     "StoriesByCountry",
-    endpoints?.getStoriesByCountry +
-      `?country=${getCountry() || "de"}&pageSize=6&apiKey=${
-        API_KEYS.newsApiOrg
-      }`
+    endpoints.getStoriesByCountry()
   );
 
   const stories = data?.data?.articles || [];

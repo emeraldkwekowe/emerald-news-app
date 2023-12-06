@@ -8,7 +8,19 @@ In the project directory, run:
 yarn install
 ```
 
-To install all packages and dependencies. To run the app in development mode, run:
+To install all packages and dependencies.
+
+An `.env.example` file has been included to aid in setting up environment variables. Please populate the variables with the relevant API keys.
+
+You can create API keys for the different platforms implemented in this project via the following links:
+
+- [NewsAPI.org](https://newsapi.org/register)
+- [NewsAPI.ai](https://www.newsapi.ai/register)
+- [New York Times Stories](https://developer.nytimes.com/apis)
+
+For quicker setup, I have shared my local env via mail.
+
+To run the app in development mode, run:
 
 ```bash
 yarn start
@@ -36,9 +48,9 @@ Clone the project from the repository:
 git clone https://github.com/emeraldkwekowe/emerald-news-app.git
 ```
 
-## Step 2: Build the Docker Image
+## Step 2: Modify and Build the Docker Image
 
-Open a terminal and navigate to the project root directory (or simply open the project in an IDE with inbuilt terminal support). Run the following command to build the Docker image:
+In the root directory, open Dockerfile and fill in the environment variables (API keys. Create yours or use the ones I shared. Step explained above). Open a terminal and navigate to the project root directory (or simply open the project in an IDE with inbuilt terminal support). Run the following command to build the Docker image:
 
 ```bash
 docker build -t emerald-news-app .
@@ -59,8 +71,6 @@ This command maps port 3001 on your host machine to port 3000 on the Docker cont
 Visit `http://localhost:3001` in your web browser to access the test submission.
 
 ---
-
-This documentation provides a step-by-step guide for running the test submission in a Docker container. Kindly note that this project uses yarn.
 
 # Other commands
 
