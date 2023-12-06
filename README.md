@@ -10,15 +10,13 @@ yarn install
 
 To install all packages and dependencies.
 
-An `.env.example` file has been included to aid in setting up environment variables. Please populate the variables with the relevant API keys.
+An `.env.example` file has been included to aid in setting up environment variables. Please duplicate the variables into your .env file and populate with the relevant API keys.
 
 You can create API keys for the different platforms implemented in this project via the following links:
 
 - [NewsAPI.org](https://newsapi.org/register)
 - [NewsAPI.ai](https://www.newsapi.ai/register)
 - [New York Times Stories](https://developer.nytimes.com/apis)
-
-For quicker setup, I have shared my local env via mail.
 
 To run the app in development mode, run:
 
