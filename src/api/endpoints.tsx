@@ -13,7 +13,7 @@ export const endpoints = {
     )}&sort=newest&fq=news_desk:("Sports", "Foreign", "Politics", "Business", "Technology") `,
 
   //////////////Newsapi.ai API//////////////
-  getNewsArticles: "http://eventregistry.org/api/v1/article/getArticles",
+  getNewsArticles: "https://eventregistry.org/api/v1/article/getArticles",
 
   //////////////Newsapi.org API/////////////
   getStoriesByCountry: (country = "de", pageSize = 6) =>
