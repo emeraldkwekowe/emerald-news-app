@@ -16,8 +16,6 @@ export const endpoints = {
   getNewsArticles: "https://eventregistry.org/api/v1/article/getArticles",
 
   //////////////Newsapi.org API/////////////
-  getStoriesByCountry: (country = "de", pageSize = 6) =>
-    `https://newsapi.org/v2/top-headlines?country=${
-      getCountry() || country
-    }&pageSize=${pageSize}&apiKey=${process.env.REACT_APP_NEWS_API_ORG_KEY}`,
+  getStoriesByCountry: () =>
+    `https://ephemeral-palmier-e9c595.netlify.app/.netlify/functions/getcountrydata?country=${getCountry()}`,
 };
